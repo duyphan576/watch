@@ -14,31 +14,91 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('main/index');
+    return view('user/index');
 });
 
 Route::get('/index', function () {
-    return view('main/index');
+    return view('user/index');
 });
 
-Route::get('/cart', function () {
-    return view('main/cart');
+Route::get('/404', function () {
+    return view('user/404');
 });
 
-Route::get('/categories', function () {
-    return view('main/categories');
+Route::get('/basket', function () {
+    return view('user/basket');
 });
 
-Route::get('/checkout', function () {
-    return view('main/checkout');
+Route::get('/blog', function () {
+    return view('user/blog');
+});
+
+Route::get('/category-full', function () {
+    return view('user/category-full');
+});
+
+Route::get('/category-right', function () {
+    return view('user/category-right');
+});
+
+Route::get('/category', function () {
+    return view('user/category');
+});
+
+Route::get('/checkout1', function () {
+    return view('user/checkout1');
+});
+
+Route::get('/checkout2', function () {
+    return view('user/checkout2');
+});
+
+Route::get('/checkout3', function () {
+    return view('user/checkout3');
+});
+
+Route::get('/checkout4', function () {
+    return view('user/checkout4');
 });
 
 Route::get('/contact', function () {
-    return view('main/contact');
+    return view('user/contact');
 });
 
-Route::get('/product', function () {
-    return view('main/product');
+Route::get('/customer-account', function () {
+    return view('user/customer-account');
+});
+
+Route::get('/customer-order', function () {
+    return view('user/customer-order');
+});
+
+Route::get('/customer-order', function () {
+    return view('user/customer-orders');
+});
+
+Route::get('/detail', function () {
+    return view('user/detail');
+});
+
+Route::get('/faq', function () {
+    return view('user/faq');
+});
+
+Route::get('/post', function () {
+    return view('user/post');
+});
+
+Route::get('/register', function () {
+    return view('user/register');
+});
+
+Route::get('/text-right', function () {
+    return view('user/text-right');
+});
+
+Route::get('/text', function () {
+    return view('user/text');
 });
 
 Route::get('/admin/dashboard', function () {
