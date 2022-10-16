@@ -88,4 +88,33 @@ Route::get('/admin/typography', function () {
 Route::get('/admin/widget', function () {
     return view('admin/widget');
 });
-
+Route::get('/admin/index3', function () {
+    return view('admin/index3');
+});
+Route::get('/admin/managerproduct', function () {
+    return view('admin/product/managerproduct');
+});
+Route::get('/admin/addproduct', function () {
+    return view('admin/product/addproduct');
+});
+Route::get('/admin/editproduct', function () {
+    return view('admin/product/editproduct');
+});
+Route::get('/admin/brand', function () {
+    return view('admin/brand/managerbrand');
+});
+Route::get('/admin/addbrand', function () {
+    return view('admin/brand/addbrand');
+});
+Route::get('/admin/editbrand', function () {
+    return view('admin/brand/editbrand');
+});
+Route::get('/admin/strap', function () {
+    return view('admin/strap/managerstrap');
+});
+Route::get('/admin/addstrap', function () {
+    return view('admin/strap/addstrap');
+});
+Route::get('/admin/editstrap', function () {
+    return view('admin/strap/editstrap');
+});

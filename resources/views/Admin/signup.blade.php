@@ -48,32 +48,42 @@
                 <div class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4">
                     <div class="bg-light rounded p-4 p-sm-5 my-4 mx-3">
                         <div class="d-flex align-items-center justify-content-between mb-3">
-                            <a href="dashboard" class="">
-                                <h3 class="text-primary"><i class="fa fa-hashtag me-2"></i>DASHMIN</h3>
-                            </a>
                             <h3>Sign Up</h3>
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="floatingText" placeholder="jhondoe">
+                            <input type="text" class="form-control" id="username" name="username"placeholder="jukute2000@gmail.com">
                             <label for="floatingText">Username</label>
                         </div>
-                        <div class="form-floating mb-3">
-                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                            <label for="floatingInput">Email address</label>
-                        </div>
                         <div class="form-floating mb-4">
-                            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Password">
                             <label for="floatingPassword">Password</label>
                         </div>
-                        <div class="d-flex align-items-center justify-content-between mb-4">
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                            </div>
-                            <a href="">Forgot Password</a>
+                        <div class="form-floating mb-4">
+                            <input type="password" class="form-control" id="password2" name="password2"placeholder="Password">
+                            <label for="floatingPassword">Confirm Password</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="txt" class="form-control" id="fullname" name="fullname" placeholder="Nguyen Van A">
+                            <label for="floatingInput">Full Name</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="date" class="form-control" id="birthday" name="birthday"placeholder="04/25/2000">
+                            <label for="floatingInput">Birthday</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                                <select class="form-select" id="sex" name="sex" aria-label="Example">
+                                    <option selected>Choose Sex</option>
+                                    <option value="1">Male</option>
+                                    <option value="2">Female</option>
+                                </select>
+                                <label for="sex">Sex</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="txt" class="form-control" id="phone" name="phone" placeholder="0967xxxxx2">
+                            <label for="floatingInput">Phone Number</label>
                         </div>
                         <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Sign Up</button>
-                        <p class="text-center mb-0">Already have an Account? <a href="">Sign In</a></p>
+                        <p class="text-center mb-0">Already have an Account? <a href="/admin/signin">Sign In</a></p>
                     </div>
                 </div>
             </div>
