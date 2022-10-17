@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+</html><!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -55,7 +55,7 @@
 
 
         <!-- Sidebar Start -->
-        @include('../admin/sidebar')
+            @include('../admin/sidebar')
         <!-- Sidebar End -->
 
 
@@ -64,22 +64,53 @@
             <!-- Navbar Start -->
             @include('../admin/navbar')
             <!-- Navbar End -->
-
-            <!-- Form Start -->
-                    <div class="bg-light rounded p-4 p-sm-5 my-4 mx-3">
-                    <div class="d-flex align-items-center justify-content-between mb-3">
-                            <h3><a href="strap"><button type="button" class="btn btn-outline-primary m-2"><i class="fa fa-home me-2"></i>Back</button></a></h3>
-                        </div>
+            <div class="container-fluid pt-4 px-4">
+                <div class="col-12">
+                        <div class="bg-light rounded h-100 p-4">
                         <div class="d-flex align-items-center justify-content-between mb-3">
-                            <h3>Edit Strap</h3>
+                            <h3><a href="orders"><button type="button" class="btn btn-outline-primary m-2"><i class="fa fa-home me-2"></i>Back</button></a></h3>
                         </div>
-                        <div class="form-floating mb-4">
-                            <input type="text" class="form-control" id="straptname" name="strapname"placeholder="Strap name">
-                            <label for="floatingText">Strap Name</label>
+                            <h3>Order Details</h3>
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">ID</th>
+                                        <th scope="col">Order ID</th>
+                                        <th scope="col">Product Name</th>
+                                        <th scope="col">Quanity</th>
+                                        <th scope="col">Price</th>
+                                        <th scope="col">Total Price</th>
+                                        <th scope="col">Button</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>1</td>
+                                        <td>Đồng hồ Chanel</td>
+                                        <td>3</td>
+                                        <td>100.000.000</td>
+                                        <td>300.000.000</td>
+                                        <td><div class="btn-group" role="group">
+                                                <a href="editdetails"><button type="button" class="btn btn-warning">Edit</button></a>
+                                            </div></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">2</th>
+                                        <td>1</td>
+                                        <td>Đồng hồ Gucci</td>
+                                        <td>7</td>
+                                        <td>100.000.000</td>
+                                        <td>700.000.000</td>
+                                        <td><div class="btn-group" role="group">
+                                                <a href="editdetails"><button type="button" class="btn btn-warning">Edit</button></a>
+                                            </div></td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
-                        <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Edit</button>
                     </div>
-        <!-- Form End -->
+                </div>
             <!-- Footer Start -->
             @include('../admin/footer')
             <!-- Footer End -->

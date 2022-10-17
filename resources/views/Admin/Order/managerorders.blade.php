@@ -64,32 +64,59 @@
             <!-- Navbar Start -->
             @include('../admin/navbar')
             <!-- Navbar End -->
-
-            <!-- Form Start -->
-                    <div class="bg-light rounded p-4 p-sm-5 my-4 mx-3">
-                    <div class="d-flex align-items-center justify-content-between mb-3">
-                            <h3><a href="strap"><button type="button" class="btn btn-outline-primary m-2"><i class="fa fa-home me-2"></i>Back</button></a></h3>
+            <div class="container-fluid pt-4 px-4">
+                <div class="col-12">
+                        <div class="bg-light rounded h-100 p-4">
+                            <h3>Orders</h3>
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">ID</th>
+                                        <th scope="col">User Name</th>
+                                        <th scope="col">Total Product</th>
+                                        <th scope="col">Total Price</th>
+                                        <th scope="col">Date</th>
+                                        <th scope="col">Status</th>
+                                        <th scope="col">Order Details</th>
+                                        <th scope="col">Status Update</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>xxxxxxx</td>
+                                        <td>10</td>
+                                        <td>1.000.000.000</td>
+                                        <td>mm/dd/yyyy</td>
+                                        <td>
+                                            <select class="form-select" aria-label="Floating label select example" id="strap" name="strap">
+                                                <option value="0"selected>Chưa xử lý</option>
+                                                <option value="1">Đang xử lý</option>
+                                                <option value="2">Hoàn thành</option> <!-- Xong thì không cho thay đổi -->
+                                                <option value="3">Hủy</option> <!-- Xong thì không cho thay đổi -->
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group" role="group">
+                                                <a href="details"><button type="button" class="btn btn-success">Show</button></a>
+                                            </div>
+                                        </td>
+                                        <td>
+                                        <button type="submit" class="btn btn-warning">Update</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
-                        <div class="d-flex align-items-center justify-content-between mb-3">
-                            <h3>Edit Strap</h3>
-                        </div>
-                        <div class="form-floating mb-4">
-                            <input type="text" class="form-control" id="straptname" name="strapname"placeholder="Strap name">
-                            <label for="floatingText">Strap Name</label>
-                        </div>
-                        <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Edit</button>
                     </div>
-        <!-- Form End -->
+                </div>
             <!-- Footer Start -->
             @include('../admin/footer')
             <!-- Footer End -->
         </div>
         <!-- Content End -->
-
-
+        
         <!-- Back to Top -->
         <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     </div>  
 </body>
-
-</html>

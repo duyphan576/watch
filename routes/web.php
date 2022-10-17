@@ -70,11 +70,11 @@ Route::get('/admin/form', function () {
 });
 
 Route::get('/admin/signin', function () {
-    return view('admin/signin');
+    return view('admin/staff/signin');
 });
 
 Route::get('/admin/signup', function () {
-    return view('admin/signup');
+    return view('admin/staff/signup');
 });
 
 Route::get('/admin/table', function () {
@@ -117,4 +117,31 @@ Route::get('/admin/addstrap', function () {
 });
 Route::get('/admin/editstrap', function () {
     return view('admin/strap/editstrap');
+});
+Route::get('/admin/orders', function () {
+    return view('admin/order/managerorders');
+});
+Route::get('/admin/details', function () {
+    return view('admin/order/orderdetails');
+});
+Route::get('/admin/editdetails', function () {
+    return view('admin/order/editdetails');
+});
+Route::get('/admin/user', function () {
+    return view('admin/user/manageruser');
+});
+Route::get('/admin/staff', function () {
+    return view('admin/staff/managerstaff');
+});
+Route::get('/admin/role', function () {
+    return view('admin/role/managerrole');
+});
+Route::get('/admin/addrole', function () {
+    return view('admin/role/addrole');
+});
+Route::get('/admin/editrole', function () {
+    return view('admin/role/editrole');
+});
+Route::get('/admin/storage', function () {
+    return view('admin/storage/managerstorage');
 });

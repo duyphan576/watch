@@ -47,8 +47,9 @@
             <div class="row h-100 align-items-center justify-content-center" style="min-height: 100vh;">
                 <div class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4">
                     <div class="bg-light rounded p-4 p-sm-5 my-4 mx-3">
+                    <a href="staff"><button type="button" class="btn btn-outline-primary m-2"><i class="fa fa-home me-2"></i>Back</button></a>
                         <div class="d-flex align-items-center justify-content-between mb-3">
-                            <h3>Sign Up</h3>
+                            <h3>Add Account Staff</h3>
                         </div>
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control" id="username" name="username"placeholder="jukute2000@gmail.com">
@@ -67,23 +68,14 @@
                             <label for="floatingInput">Full Name</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="date" class="form-control" id="birthday" name="birthday"placeholder="04/25/2000">
-                            <label for="floatingInput">Birthday</label>
-                        </div>
-                        <div class="form-floating mb-3">
-                                <select class="form-select" id="sex" name="sex" aria-label="Example">
-                                    <option selected>Choose Sex</option>
-                                    <option value="1">Male</option>
-                                    <option value="2">Female</option>
+                                <select class="form-select" id="role" name="role" aria-label="Example">
+                                    <option selected>Choose Role</option>
+                                    <option value="1">Product</option>
+                                    <option value="2">User</option>
                                 </select>
-                                <label for="sex">Sex</label>
+                                <label for="role">Role</label>
                         </div>
-                        <div class="form-floating mb-3">
-                            <input type="txt" class="form-control" id="phone" name="phone" placeholder="0967xxxxx2">
-                            <label for="floatingInput">Phone Number</label>
-                        </div>
-                        <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Sign Up</button>
-                        <p class="text-center mb-0">Already have an Account? <a href="/admin/signin">Sign In</a></p>
+                        <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Add</button>
                     </div>
                 </div>
             </div>

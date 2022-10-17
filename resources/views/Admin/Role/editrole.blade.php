@@ -57,25 +57,22 @@
         <!-- Sidebar Start -->
         @include('../admin/sidebar')
         <!-- Sidebar End -->
-
-
         <!-- Content Start -->
         <div class="content">
             <!-- Navbar Start -->
             @include('../admin/navbar')
             <!-- Navbar End -->
-
             <!-- Form Start -->
                     <div class="bg-light rounded p-4 p-sm-5 my-4 mx-3">
                     <div class="d-flex align-items-center justify-content-between mb-3">
-                            <h3><a href="strap"><button type="button" class="btn btn-outline-primary m-2"><i class="fa fa-home me-2"></i>Back</button></a></h3>
+                            <h3><a href="role"><button type="button" class="btn btn-outline-primary m-2"><i class="fa fa-home me-2"></i>Back</button></a></h3>
                         </div>
                         <div class="d-flex align-items-center justify-content-between mb-3">
-                            <h3>Edit Strap</h3>
+                            <h3>Edit Role</h3>
                         </div>
                         <div class="form-floating mb-4">
-                            <input type="text" class="form-control" id="straptname" name="strapname"placeholder="Strap name">
-                            <label for="floatingText">Strap Name</label>
+                            <input type="text" class="form-control" id="rolename" name="rolename"placeholder="Role name">
+                            <label for="floatingText">Role Name</label>
                         </div>
                         <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Edit</button>
                     </div>

@@ -66,19 +66,53 @@
             <!-- Navbar End -->
 
             <!-- Form Start -->
-                    <div class="bg-light rounded p-4 p-sm-5 my-4 mx-3">
+            <div class="bg-light rounded p-4 p-sm-5 my-4 mx-3">
                     <div class="d-flex align-items-center justify-content-between mb-3">
-                            <h3><a href="strap"><button type="button" class="btn btn-outline-primary m-2"><i class="fa fa-home me-2"></i>Back</button></a></h3>
+                            <h3><a href="details"><button type="button" class="btn btn-outline-primary m-2"><i class="fa fa-home me-2"></i>Back</button></a></h3>
                         </div>
                         <div class="d-flex align-items-center justify-content-between mb-3">
-                            <h3>Edit Strap</h3>
+                            <h3>Update Details</h3>
                         </div>
                         <div class="form-floating mb-4">
-                            <input type="text" class="form-control" id="straptname" name="strapname"placeholder="Strap name">
-                            <label for="floatingText">Strap Name</label>
+                            <dl class="row mb-0">
+                                <dt class="col-sm-2">Detals ID</dt>
+                                <dd class="col-sm-8">1</dd>
+                            </dl>
                         </div>
-                        <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Edit</button>
-                    </div>
+                        <div class="form-floating mb-4">
+                            <dl class="row mb-0">
+                                <dt class="col-sm-2">Order ID</dt>
+                                <dd class="col-sm-8">1</dd>
+                            </dl>
+                        </div>
+                        <div class="form-floating mb-4">
+                            <dl class="row mb-0">
+                                <dt class="col-sm-2">Product Name</dt>
+                                <dd class="col-sm-8">Đồng hồ Chanel</dd>
+                            </dl>
+                        </div>
+                        <div class="form-floating mb-4">
+                            <dl class="row mb-0">
+                                <dt class="col-sm-2">Quanity</dt>
+                                    <dd class="col-sm-8">
+                                    <input type="txt" class="form-control" id="phonenumber" name="phonenumber" placeholder="3">
+                                    </dd>
+                            </dl>
+                        </div>
+                        <div class="form-floating mb-4">
+                            <dl class="row mb-0">
+                                <dt class="col-sm-2">Price</dt>
+                                <dd class="col-sm-8">100.000.000</dd>
+                            </dl>
+                        </div>
+                        <div class="form-floating mb-4">
+                            <dl class="row mb-0">
+                                <dt class="col-sm-2">Total Price</dt>
+                                <dd class="col-sm-8">300.000.000</dd>
+                            </dl>
+                        </div>
+                        <button type="submit" class="btn btn-primary py-3 w-100 mb-8">Update</button>
+            </div>
         <!-- Form End -->
             <!-- Footer Start -->
             @include('../admin/footer')
