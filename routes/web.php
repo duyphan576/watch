@@ -18,6 +18,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/shop/{strapID}', [ShopController::class, 'create']);
+
+// Route::get('/admin', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('admin');
+
 Route::get('/admin/dashboard', function () {
     return view('admin/index');
 });
@@ -51,7 +57,7 @@ Route::get('/admin/signin', function () {
 });
 
 Route::get('/admin/signup', function () {
-    return view('admin/signup');
+    return view('/admin/staff/signup');
 });
 
 Route::get('/admin/table', function () {
