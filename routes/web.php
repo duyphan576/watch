@@ -18,11 +18,23 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/shop/{strapID}', [ShopController::class, 'create']);
+Route::get('/shop/{strapID}', [ShopController::class, 'index']);
 
 // Route::get('/admin', function () {
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('admin');
+
+Route::get('/admin/index', function () {
+    return view('components/admin/main/main');
+});
+
+Route::get('/admin/signin', function () {
+    return view('admin/signin');
+});
+
+Route::get('/admin/signup', function () {
+    return view('admin/signup');
+});
 
 Route::get('/admin/dashboard', function () {
     return view('admin/index');

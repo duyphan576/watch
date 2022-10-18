@@ -1,4 +1,4 @@
-<x-client.main>
+<x-client.main.main>
   <section class="wrapper bg-gray">
     <div class="container py-3 py-md-5">
       <nav class="d-inline-block" aria-label="breadcrumb">
@@ -270,4 +270,4 @@
     <!-- /.container -->
   </section>
   <!-- /section -->
-</x-client.main>
+</x-client.main.main>
