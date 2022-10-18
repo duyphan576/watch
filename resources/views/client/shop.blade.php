@@ -41,18 +41,18 @@
             <div class="row gx-md-8 gy-10 gy-md-13 isotope">
               <!-- /.item -->
               @foreach($products as $product)
-              <x-client.item>
+              <x-client.shop.item>
                   <x-slot:image>{{ asset('assets/image/product/' . $product->Image) }}</x-slot:image>
                   <x-slot:strap>{{ $strap->StrapName }}</x-slot:strap>
                   <x-slot:name>{{ $product->ProductName }}</x-slot:name>
                   <x-slot:price>{{ $product->Price }}</x-slot:price>
-                </x-client.item>
+                </x-client.shop.item>
               @endforeach
             </div>
             <!-- /.row -->
           </div>
           <!-- /.grid -->
-          {{$products->links('components/client/pagination')}}
+          {{$products->links('components/client/shop/pagination')}}
           
         </div>
         <!-- /column -->
