@@ -7,10 +7,10 @@ use App\Models\Product;
 use App\Models\Strap;
 
 class ShopController extends Controller {
-    public function create($strapID) {
+    public function index($strapID) {
         $strap = Strap::where('StrapID', $strapID)->first();
-        $products = $strap->products()->paginate(8);
-        return view('client.shop', [
+        $products = $strap->products()->paginate(9);
+        return view('client..shop.shop', [
             'strap' => $strap,
             'products' => $products,
         ]);
