@@ -5,6 +5,7 @@ use App\Http\Controllers\ShopController;
 use App\Http\Controllers\Admin\Brand\BrandController;
 use App\Http\Controllers\Admin\Product\ProductController;
 use App\Http\Controllers\Admin\Strap\StrapController;
+use App\Http\Controllers\Admin\Role\RoleController;
 
 /*
   |--------------------------------------------------------------------------
@@ -40,6 +41,8 @@ Route::get('/admin/brand', [BrandController::class, 'index']);
 Route::get('/admin/product', [ProductController::class, 'index']);
 
 Route::get('/admin/strap', [StrapController::class, 'index']);
+
+Route::get('/admin/role', [RoleController::class, 'index']);
 
 Route::get('/admin/dashboard', function () {
     return view('admin/index');

@@ -11,7 +11,7 @@ class StrapController extends Controller
     public function index()
     {
         $strap = Strap::all();
-        return view('admin.strap.managerStrap', [
+        return view('admin.strap.managerstrap', [
             'strap' => $strap,
         ]);
     }
