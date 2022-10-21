@@ -67,7 +67,10 @@
             <div class="container-fluid pt-4 px-4">
                 <div class="col-12">
                         <div class="bg-light rounded h-100 p-4">
-                            <h3>Brand</h3>
+                        <div class="d-flex align-items-center justify-content-between mb-4">
+                                <h3 class="mb-0">Brand</h3>
+                                <a href="addbrand"><button type="button" class="btn btn-success">Add</button></a>
+                        </div>
                             <table class="table table-hover">
                                 <thead>
                                     <tr>
@@ -88,7 +91,7 @@
                                             <div class="btn-group" role="group">
                                                 <a href=""><button type="button" class="btn btn-danger">Del</button></a>
                                                 <a href="editbrand"><button type="button" class="btn btn-warning">Edit</button></a>
-                                                <a href="addbrand"><button type="button" class="btn btn-success">Add</button></a>
+                                                
                                             </div>
                                         </td>
                                     </tr>

@@ -145,3 +145,6 @@ Route::get('/admin/editrole', function () {
 Route::get('/admin/storage', function () {
     return view('admin/storage/managerstorage');
 });
+Route::get('/admin/storagedetail', function () {
+    return view('admin/storage/storagedetail');
+});

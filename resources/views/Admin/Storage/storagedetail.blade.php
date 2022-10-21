@@ -57,37 +57,31 @@
         <!-- Sidebar Start -->
         @include('../admin/sidebar')
         <!-- Sidebar End -->
-
-
         <!-- Content Start -->
         <div class="content">
             <!-- Navbar Start -->
             @include('../admin/navbar')
             <!-- Navbar End -->
-            <div class="container-fluid pt-4 px-4">
-                <div class="col-12">
-                        <div class="bg-light rounded h-100 p-4">
-                            <h3>Storage</h3>
-                            <a href="storagedetail"><button type="button" class="btn btn-secondary m-2">Import Product</button></a>
-                            <table class="table table-hover">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Product Name</th>
-                                        <th scope="col">Brand Name</th>
-                                        <th scope="col">Quanity</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Đồng hồ Gucci</td>
-                                        <td>Gucci</td>
-                                        <td>10</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+            <!-- Form Start -->
+                    <div class="bg-light rounded p-4 p-sm-5 my-4 mx-3">
+                    <div class="d-flex align-items-center justify-content-between mb-3">
+                            <h3><a href="storage"><button type="button" class="btn btn-outline-primary m-2"><i class="fa fa-home me-2"></i>Back</button></a></h3>
                         </div>
-                    </div>
-                </div>
+                        <div class="d-flex align-items-center justify-content-between mb-3">
+                            <h3>Add Import Product Details</h3>
+                        </div>
+                        <div class="form-floating mb-3">
+                                <select class="form-select" id="productname" name="productname" aria-label="Example">
+                                    <option selected>Choose Product</option>
+                                </select>
+                                <label for="productname">Product Name</label>
+                        </div>
+                        <div class="form-floating mb-4">
+                            <input type="text" class="form-control" id="quantity" name="quantity"placeholder="quantity">
+                            <label for="floatingText">Quantity</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Add</button>
+        <!-- Form End -->
             <!-- Footer Start -->
             @include('../admin/footer')
             <!-- Footer End -->
