@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ShopController;
+use App\Http\Controllers\Admin\Brand\BrandController;
+use App\Http\Controllers\Admin\Product\ProductController;
 
 /*
   |--------------------------------------------------------------------------
@@ -31,6 +33,10 @@ Route::get('/admin/signup', function() {
 Route::get('/admin/signin', function() {
     return View('admin/staff/signin');
 });
+
+Route::get('/admin/brand', [BrandController::class, 'index']);
+
+Route::get('/admin/product', [ProductController::class, 'index']);
 
 Route::get('/admin/dashboard', function() {
     return view('admin/index');

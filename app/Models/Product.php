@@ -21,4 +21,12 @@ class Product extends Model {
         'Image',
         'IsShow',
     ];
+
+    public function brand() {
+        return $this->hasOne(Brand::class, 'BrandID', 'BrandID');
+    }
+
+    public function strap() {
+        return $this->hasOne(Strap::class, 'StrapID', 'StrapID');
+    }
 }
