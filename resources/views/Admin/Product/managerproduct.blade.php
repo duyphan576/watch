@@ -17,12 +17,12 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {{$counter = 1}}
+                        <!-- {{$counter = 1}} -->
                         @foreach ($products as $product)    
                         <x-admin.product.product-table-row>
                             <x-slot:counter>{{$counter++}}</x-slot:counter>
                             <x-slot:name>{{$product->ProductName}}</x-slot:name>
-                            <x-slot:brand>{{$product->brand->BrandNmae}}</x-slot:brand>
+                            <x-slot:brand>{{$product->brand->BrandName}}</x-slot:brand>
                             <x-slot:strap>{{$product->strap->StrapName}}</x-slot:strap>
                             <x-slot:price>{{$product->Price}}</x-slot:price>
                             <x-slot:description>{{'Hello'}}</x-slot:description>
