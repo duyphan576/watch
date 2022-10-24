@@ -14,7 +14,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {{$counter = 1}}
+                        @php($counter = 1)
                         @foreach ($brands as $brand)
                             <x-admin.brand.brand-table-row>
                                 <x-slot:counter>{{$counter++}}</x-slot:counter>
