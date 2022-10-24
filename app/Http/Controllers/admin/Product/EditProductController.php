@@ -9,24 +9,25 @@ use App\Models\Product;
 use App\Models\Brand;
 use App\Models\Strap;
 
-class AddProductController extends Controller {
+class EditProductController extends Controller {
     
-    public function index() {
+    public function index($productID) {
+        $product = Product::find($productID);
         $brands = Brand::all();
         $straps = Strap::all();
-        return view('admin/product/addproduct', [
+        return view('admin/product/editproduct', [
+            'product' => $product,
             'brands' => $brands,
             'straps' => $straps,
         ]);
     }
 
-    public function store(Request $request) {
+    public function update(Request $request) {
         $request->validate([
             'productName' => ['required', 'string', 'max:255'],
             'brand' => ['required', 'exists:Brand,BrandID'],
             'strap' => ['required', 'exists:Strap,StrapID'],
             'price' => ['required', 'integer'],
-            'image' => ['required', 'image'],
         ]);
 
         $product = new Product;
@@ -44,7 +45,7 @@ class AddProductController extends Controller {
             $product->Image = $name;
             $file->move(public_path() . '/assets/image/product', $name);
         }
-        $product->save();
+        $product->update();
 
         return back()->with('success','File has been uploaded.');
     }
