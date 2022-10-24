@@ -24,20 +24,21 @@ class EditProductController extends Controller {
 
     public function update(Request $request) {
         $request->validate([
+            'productID' => ['required'],
             'productName' => ['required', 'string', 'max:255'],
             'brand' => ['required', 'exists:Brand,BrandID'],
             'strap' => ['required', 'exists:Strap,StrapID'],
             'price' => ['required', 'integer'],
         ]);
 
-        $product = new Product;
-
+        $product = Product::find($request->productID);
+        
         $product->BrandID = $request->brand;
         $product->StrapID = $request->strap;
         $product->ProductName = $request->productName;
         $product->Price = $request->price;
         $product->BrandID = $request->brand;
-
+        
         if($request->hasFile('image')) {
             $file = $request->file('image');
             $timestamp = time();
@@ -45,7 +46,7 @@ class EditProductController extends Controller {
             $product->Image = $name;
             $file->move(public_path() . '/assets/image/product', $name);
         }
-        $product->update();
+        $product->save();
 
         return back()->with('success','File has been uploaded.');
     }

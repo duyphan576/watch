@@ -43,8 +43,10 @@ Route::get('/admin/product', [ProductController::class, 'index']);
 Route::get('/admin/product/add', [AddProductController::class, 'index'])->name('addProduct');
 Route::post('/admin/product/add', [AddProductController::class, 'store']);
 
-Route::get('/admin/product/edit/{productID}', [EditProductController::class, 'index'])->name('editProduct');
-Route::post('/admin/product/edit/{productID}', [AddProductController::class, 'store']);
+Route::get('/admin/product/edit/{productID}', [EditProductController::class, 'index']);
+Route::post('/admin/product/edit/', [EditProductController::class, 'update'])->name('editProduct');
+
+Route::post('/admin/product/delete', [ProductController::class, 'delete'])->name('deleteProduct');
 
 Route::get('/admin/dashboard', function() {
     return view('admin/index');
