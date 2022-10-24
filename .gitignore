@@ -15,3 +15,10 @@ yarn-error.log
 /.idea
 /.vscode
 /nbproject/private/
+*.php
+app/Http/Controllers/admin/Product/ProductController.php
+app/Http/Controllers/admin/Product/ProductController.php
+*.php
+*.php
+*.php
+*.php

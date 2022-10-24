@@ -17,19 +17,38 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {{$counter = 1}}
-                        @foreach ($products as $product)    
+                        @php($counter = 1)
+                        @foreach ($products as $product)
                         <x-admin.product.product-table-row>
                             <x-slot:counter>{{$counter++}}</x-slot:counter>
                             <x-slot:name>{{$product->ProductName}}</x-slot:name>
-                            <x-slot:brand>{{$product->brand->BrandNmae}}</x-slot:brand>
+                            <x-slot:brand>{{$product->brand->BrandName}}</x-slot:brand>
                             <x-slot:strap>{{$product->strap->StrapName}}</x-slot:strap>
                             <x-slot:price>{{$product->Price}}</x-slot:price>
                             <x-slot:description>{{'Hello'}}</x-slot:description>
+                            <x-slot:id>{{$product->ProductID}}</x-slot:id>
                         </x-admin.product.product-table-row>
                         @endforeach
                     </tbody>
                 </table>
+            </div>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Confirm Delete</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Are you sure want to delete this item ?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-danger">Delete</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
