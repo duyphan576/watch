@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\Admin\Brand\BrandController;
 use App\Http\Controllers\Admin\Product\ProductController;
-
+use App\Http\Controllers\Admin\Staff\StaffController;
 /*
   |--------------------------------------------------------------------------
   | Web Routes
@@ -37,6 +37,7 @@ Route::get('/admin/signin', function() {
 Route::get('/admin/brand', [BrandController::class, 'index']);
 
 Route::get('/admin/product', [ProductController::class, 'index']);
+Route::get('/admin/staff', [StaffController::class, 'index']);
 
 Route::get('/admin/dashboard', function() {
     return view('admin/index');

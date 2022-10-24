@@ -20,4 +20,8 @@ class Staff extends Model
     ];
 
     protected $hidden = ['password'];
+
+    public function role() {
+        return $this->hasOne(Role::class, 'RoleID', 'RoleID');
+    }
 }
