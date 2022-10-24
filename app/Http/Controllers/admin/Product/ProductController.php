@@ -13,4 +13,8 @@ class ProductController extends Controller {
             'products' => $products,
         ]);
     }
+
+    public function delele($productID) {
+        
+    }
 }
