@@ -15,4 +15,12 @@ class StrapController extends Controller
             'strap' => $strap,
         ]);
     }
+
+    public function delete(Request $request)
+    {
+        $product = Strap::find($request->productID);
+        $product->delete();
+
+        return back();
+    }
 }

@@ -6,6 +6,12 @@ use App\Http\Controllers\Admin\Brand\BrandController;
 use App\Http\Controllers\Admin\Product\ProductController;
 use App\Http\Controllers\Admin\Product\AddProductController;
 use App\Http\Controllers\Admin\Product\EditProductController;
+use App\Http\Controllers\Admin\Strap\StrapController;
+use App\Http\Controllers\Admin\Strap\AddStrapController;
+use App\Http\Controllers\Admin\Strap\EditStrapController;
+use App\Http\Controllers\Admin\Role\RoleController;
+use App\Http\Controllers\Admin\Role\AddRoleController;
+use App\Http\Controllers\Admin\Role\EditRoleController;
 
 /*
   |--------------------------------------------------------------------------
@@ -48,7 +54,27 @@ Route::post('/admin/product/edit/', [EditProductController::class, 'update'])->n
 
 Route::post('/admin/product/delete', [ProductController::class, 'delete'])->name('deleteProduct');
 
-Route::get('/admin/dashboard', function() {
+Route::get('/admin/strap', [StrapController::class, 'index']);
+
+Route::get('/admin/strap/add', [AddStrapController::class, 'index'])->name('addStrap');
+Route::post('/admin/strap/add', [AddStrapController::class, 'store']);
+
+Route::get('/admin/strap/edit/{StrapID}', [EditStrapController::class, 'index']);
+Route::post('/admin/strap/edit/', [EditStrapController::class, 'update'])->name('editStrap');
+
+Route::post('/admin/strap/delete', [StrapController::class, 'delete'])->name('deleteStrap');
+
+Route::get('/admin/role', [RoleController::class, 'index']);
+
+Route::get('/admin/role/add', [AddRoleController::class, 'index'])->name('addRole');
+Route::post('/admin/role/add', [AddRoleController::class, 'store']);
+
+Route::get('/admin/role/edit/{RoleID}', [EditRoleController::class, 'index']);
+Route::post('/admin/role/edit/', [EditRoleController::class, 'update'])->name('editRole');
+
+Route::post('/admin/role/delete', [RoleController::class, 'delete'])->name('deleteRole');
+
+Route::get('/admin/dashboard', function () {
     return view('admin/index');
 });
 

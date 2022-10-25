@@ -15,4 +15,12 @@ class RoleController extends Controller
             'role' => $role,
         ]);
     }
+
+    public function delete(Request $request)
+    {
+        $product = Role::find($request->productID);
+        $product->delete();
+
+        return back();
+    }
 }
