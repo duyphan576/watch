@@ -13,4 +13,9 @@ class BrandController extends Controller {
             'brands' => $brands,
         ]);
     }
+
+    public function delete(Request $request) {
+        $brand = Brand::find($request->brandID);
+        $brand->delete();
+    }
 }

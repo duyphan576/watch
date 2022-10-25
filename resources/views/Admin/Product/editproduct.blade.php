@@ -8,10 +8,11 @@
         <div class="d-flex align-items-center justify-content-between mb-3">
             <h3>Edit Product</h3>
         </div>
-        <form method="POST" action="{{ route('addProduct') }}" enctype="multipart/form-data">
+        <form method="POST" action="{{ route('editProduct') }}" enctype="multipart/form-data">
             @csrf
+            <input type="text" name="productID" value="{{ $product->ProductID }}" hidden>
             <div class="form-floating mb-4">
-                <input type="text" class="form-control" id="productname" name="productname"
+                <input type="text" class="form-control" id="productName" name="productName"
                     value="{{$product->ProductName}}">
                 <label for="floatingText">Product Name</label>
             </div>
