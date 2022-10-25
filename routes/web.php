@@ -38,6 +38,8 @@ Route::get('/admin/brand', [BrandController::class, 'index']);
 
 Route::get('/admin/product', [ProductController::class, 'index']);
 
+Route::get('/admin/storage', [StorageController::class, 'index']);
+
 Route::get('/admin/dashboard', function() {
     return view('admin/index');
 });
