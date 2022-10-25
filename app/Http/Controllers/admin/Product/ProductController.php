@@ -14,7 +14,10 @@ class ProductController extends Controller {
         ]);
     }
 
-    public function delele($productID) {
-        
+    public function delete(Request $request) {
+        $product = Product::find($request->productID);
+        $product->delete();
+
+        return back();
     }
 }

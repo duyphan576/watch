@@ -4,7 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\Admin\Brand\BrandController;
 use App\Http\Controllers\Admin\Product\ProductController;
-use App\Http\Controllers\Admin\Staff\StaffController;
+use App\Http\Controllers\Admin\Product\AddProductController;
+use App\Http\Controllers\Admin\Product\EditProductController;
+
 /*
   |--------------------------------------------------------------------------
   | Web Routes
@@ -37,7 +39,14 @@ Route::get('/admin/signin', function() {
 Route::get('/admin/brand', [BrandController::class, 'index']);
 
 Route::get('/admin/product', [ProductController::class, 'index']);
-Route::get('/admin/staff', [StaffController::class, 'index']);
+
+Route::get('/admin/product/add', [AddProductController::class, 'index'])->name('addProduct');
+Route::post('/admin/product/add', [AddProductController::class, 'store']);
+
+Route::get('/admin/product/edit/{productID}', [EditProductController::class, 'index']);
+Route::post('/admin/product/edit/', [EditProductController::class, 'update'])->name('editProduct');
+
+Route::post('/admin/product/delete', [ProductController::class, 'delete'])->name('deleteProduct');
 
 Route::get('/admin/dashboard', function() {
     return view('admin/index');
