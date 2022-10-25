@@ -1,7 +1,17 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+<<<<<<< Updated upstream
 
+=======
+use App\Http\Controllers\ShopController;
+use App\Http\Controllers\Admin\Brand\BrandController;
+use App\Http\Controllers\Admin\Product\ProductController;
+use App\Http\Controllers\Admin\Staff\StaffController;
+use App\Http\Controllers\Admin\Staff\AddStaffController;
+use App\Http\Controllers\Admin\Product\AddProductController;
+use App\Http\Controllers\Admin\Product\EditProductController;
+>>>>>>> Stashed changes
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -65,9 +75,26 @@ Route::get('/contact', function () {
     return view('user/contact');
 });
 
+<<<<<<< Updated upstream
 Route::get('/customer-account', function () {
     return view('user/customer-account');
 });
+=======
+Route::get('/admin/product', [ProductController::class, 'index']);
+
+Route::get('/admin/product/add', [AddProductController::class, 'index'])->name('addProduct');
+Route::post('/admin/product/add', [AddProductController::class, 'store']);
+
+Route::get('/admin/product/edit/{productID}', [EditProductController::class, 'index'])->name('editProduct');
+Route::post('/admin/product/edit/{productID}', [AddProductController::class, 'store']);
+
+Route::get('/admin/staff', [StaffController::class, 'index']);
+Route::get('/admin/staff/add', [AddStaffController::class, 'index'])->name('addStaff');
+Route::post('/admin/admin/staff/signin', [AddStaffController::class, 'accountstaff']);
+
+Route::get('/admin/staff/edit/{staffID}', [EditStaffController::class, 'index'])->name('editStaff');
+Route::post('/admin/staff/edit/{staffID}', [AddStaffController::class, 'accountstaff']);
+>>>>>>> Stashed changes
 
 Route::get('/customer-orders', function () {
     return view('user/customer-orders');
@@ -132,11 +159,6 @@ Route::get('/admin/element', function () {
 Route::get('/admin/form', function () {
     return view('admin/form');
 });
-
-Route::get('/admin/signin', function () {
-    return view('admin/signin');
-});
-
 Route::get('/admin/signup', function () {
     return view('admin/signup');
 });
