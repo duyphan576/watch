@@ -18,7 +18,7 @@
                         <x-admin.storage.storage-table-row>
                             <x-slot:counter>{{$counter++}}</x-slot:counter>
                             <x-slot:product>{{$storage->product->ProductName}}</x-slot:product>
-                            
+                            <x-slot:brand>{{$storage->product->brand->BrandName}}</x-slot:brand>
                             <x-slot:quantity>{{$storage->Quantity}}</x-slot:quantity>
                         </x-admin.storage.storage-table-row>
                         @endforeach
