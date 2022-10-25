@@ -28,4 +28,8 @@ class Product extends Model {
     public function strap() {
         return $this->hasOne(Strap::class, 'StrapID', 'StrapID');
     }
+
+    public function storages() {
+        return $this->hasMany(Storage::class, 'ProductID', 'ProductID');
+    }
 }

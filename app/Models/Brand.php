@@ -18,4 +18,8 @@ class Brand extends Model
     public function products() {
         return $this->hasMany(Product::class, 'BrandID', 'BrandID');
     }
+
+    public function storages() {
+        return $this->hasMany(Storage::class, 'BrandID', 'BrandID');
+    }
 }
