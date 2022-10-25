@@ -69,12 +69,16 @@ Route::get('/customer-account', function () {
     return view('user/customer-account');
 });
 
+Route::get('/customer-orders', function () {
+    return view('user/customer-orders');
+});
+
 Route::get('/customer-order', function () {
     return view('user/customer-order');
 });
 
-Route::get('/customer-order', function () {
-    return view('user/customer-orders');
+Route::get('/customer-wishlist', function () {
+    return view('user/customer-wishlist');
 });
 
 Route::get('/detail', function () {
