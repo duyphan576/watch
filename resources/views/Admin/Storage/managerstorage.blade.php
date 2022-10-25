@@ -14,13 +14,13 @@
                     </thead>
                     <tbody>
                         @php($counter = 1)
-                        @foreach ($products as $product)
-                        <x-admin.product.product-table-row>
+                        @foreach ($storages as $storage)
+                        <x-admin.storage.storage-table-row>
                             <x-slot:counter>{{$counter++}}</x-slot:counter>
-                            <x-slot:name>{{$product->ProductName}}</x-slot:name>
-                            <x-slot:brand>{{$product->brand->BrandName}}</x-slot:brand>
-                            <x-slot:quantity>{{$product->Price}}</x-slot:price>
-                        </x-admin.product.product-table-row>
+                            <x-slot:name>{{$storage->ProductName}}</x-slot:name>
+                            <x-slot:brand>{{$storage->brand->BrandName}}</x-slot:brand>
+                            <x-slot:quantity>{{$storage->Quantity}}</x-slot:price>
+                        </x-admin.storage.storage-table-row>
                         @endforeach
                     </tbody>
                 </table>
