@@ -10,9 +10,17 @@ class RoleController extends Controller
 {
     public function index()
     {
-        $roles = Role::all();
+        $role = Role::all();
         return view('admin.role.managerrole', [
-            'roles' => $roles,
+            'role' => $role,
         ]);
+    }
+
+    public function delete(Request $request)
+    {
+        $product = Role::find($request->productID);
+        $product->delete();
+
+        return back();
     }
 }
