@@ -2,7 +2,10 @@
             <div class="container-fluid pt-4 px-4">
                 <div class="col-12">
                         <div class="bg-light rounded h-100 p-4">
-                            <h3>Staff</h3>
+                        <div class="d-flex align-items-center justify-content-between mb-3">
+                            <h3>Staff</h3>  
+                            <a href="staff/add"><button type="button" class="btn btn-success">Add</button></a>
+                        </div>
                             <table class="table table-hover">
                                 <thead>
                                     <tr>
@@ -23,7 +26,7 @@
                                     <x-slot:password>{{$staff->Password}}</x-slot:password>
                                     <x-slot:role>{{$staff->role->RoleName}}</x-slot:role>
                                     <x-slot:fullname>{{$staff->Fullname}}</x-slot:fullname>
-                                    <x-slot:status>{{$staff->Status}}</x-slot:status>
+                                    <x-slot:status>{{$staff->Status === 1 ? 'Open' : 'Lock'}}</x-slot:status>
                                     </x-admin.brand.brand-table-row>
                                  @endforeach
                                 </tbody>
