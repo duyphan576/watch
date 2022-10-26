@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\Staff\StaffController;
 use App\Http\Controllers\Admin\Staff\AddStaffController;
 use App\Http\Controllers\Admin\Product\AddProductController;
 use App\Http\Controllers\Admin\Product\EditProductController;
+use App\Http\Controllers\Admin\Auth\SigninController;
 
 /*
   |--------------------------------------------------------------------------
@@ -30,13 +31,8 @@ Route::get('/shop/{strapID}', [ShopController::class, 'index']);
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('admin');
 
-Route::get('/admin/signup', function() {
-    return View('admin/staff/signup');
-});
-
-Route::get('/admin/signin', function() {
-    return View('admin/staff/signin');
-});
+Route::get('/admin/signin', [SigninController::class, 'index'])->name('adminSignin');
+Route::post('/admin/signin', [SigninController::class, 'store']);
 
 Route::get('/admin/brand', [BrandController::class, 'index']);
 
@@ -47,6 +43,8 @@ Route::post('/admin/product/add', [AddProductController::class, 'store']);
 
 Route::get('/admin/product/edit/{productID}', [EditProductController::class, 'index']);
 Route::post('/admin/product/edit/', [EditProductController::class, 'update'])->name('editProduct');
+
+Route::post('/admin/product/delete', [ProductController::class, 'delete'])->name('deleteProduct');
 
 Route::get('/index', function () {
     return view('user/index');
@@ -96,13 +94,6 @@ Route::get('/contact', function () {
     return view('user/contact');
 });
 
-Route::get('/admin/product', [ProductController::class, 'index']);
-
-Route::get('/admin/product/add', [AddProductController::class, 'index'])->name('addProduct');
-Route::post('/admin/product/add', [AddProductController::class, 'store']);
-
-Route::get('/admin/product/edit/{productID}', [EditProductController::class, 'index'])->name('editProduct');
-Route::post('/admin/product/edit/{productID}', [AddProductController::class, 'store']);
 
 Route::get('/admin/staff', [StaffController::class, 'index']);
 Route::get('/admin/staff/add', [AddStaffController::class, 'index'])->name('addStaff');
@@ -147,7 +138,6 @@ Route::get('/text', function () {
     return view('user/text');
 });
 
-Route::post('/admin/product/delete', [ProductController::class, 'delete'])->name('deleteProduct');
 
 Route::get('/admin/dashboard', function() {
     return view('admin/index');

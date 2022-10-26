@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\Staff;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Hash;
 use App\Models\Staff;
 use App\Models\Role;
 
@@ -28,7 +29,7 @@ class AddStaffController extends Controller {
 
         $staff = new Staff;
         $staff->Username = $request->username;
-        $staff->Password = $request->password;
+        $staff->Password = Hash::make($request->password);
         $staff->Fullname = $request->fullname;
         $staff->RoleID= $request->role;
         $staff->Status = $request->status;

@@ -10,9 +10,9 @@ class RoleController extends Controller
 {
     public function index()
     {
-        $role = Role::all();
+        $roles = Role::all();
         return view('admin.role.managerrole', [
-            'role' => $role,
+            'roles' => $roles,
         ]);
     }
 }
