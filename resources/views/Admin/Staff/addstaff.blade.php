@@ -34,7 +34,8 @@
 <body>
     <div class="container-xxl position-relative bg-white d-flex p-0">
         <!-- Spinner Start -->
-        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div id="spinner"
+            class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
             <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
                 <span class="sr-only">Loading...</span>
             </div>
@@ -48,46 +49,64 @@
                 <div class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4">
                     <div class="bg-light rounded p-4 p-sm-5 my-4 mx-3">
                         <div class="d-flex align-items-center justify-content-between mb-3">
-                            <h3>Sign In</h3>  
-                            <h3><a href="../staff"><button type="button" class="btn btn-outline-primary m-2"><i class="fa fa-home me-2"></i>Back</button></a></h3>
+                            <h3>Sign In</h3>
+                            <h3><a href="../staff"><button type="button" class="btn btn-outline-primary m-2"><i
+                                            class="fa fa-home me-2"></i>Back</button></a></h3>
                         </div>
                         <form method="POST" action="{{ route('addStaff') }}" enctype="multipart/form-data">
+                            @csrf
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="username" name="username" placeholder="name@example.com">
+                                <input type="text" class="form-control" id="username" name="username"
+                                    placeholder="name@example.com">
                                 <label for="floatingInput">Username</label>
                             </div>
+                            @error('username')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                             <div class="form-floating mb-4">
-                                <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                                <input type="password" class="form-control" id="password" name="password"
+                                    placeholder="Password">
                                 <label for="floatingPassword">Password</label>
                             </div>
+                            @error('password')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                             <div class="form-floating mb-4">
-                                <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Nguyen Van A">
+                                <input type="text" class="form-control" id="fullname" name="fullname"
+                                    placeholder="Nguyen Van A">
                                 <label for="floatingPassword">FullName</label>
                             </div>
+                            @error('fullname')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                             <div class="form-floating mb-4">
-                            <select class="form-select" id="floatingSelect" aria-label="Floating label select example" id="role"name="role">
-                                <option selected disabled>Open this select menu Role</option>
-                                @foreach ($roles as $role)
-                                <option value="{{$role->RoleID}}">{{$role->RoleName}}</option>
-                                @endforeach
+                                <select class="form-select" id="floatingSelect"
+                                    aria-label="Floating label select example" id="role" name="role">
+                                    <option selected disabled>Open this select menu Role</option>
+                                    @foreach ($roles as $role)
+                                    <option value="{{$role->RoleID}}">{{$role->RoleName}}</option>
+                                    @endforeach
                                 </select>
                                 <label for="floatingSelect">Role</label>
                             </div>
+                            @error('role')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                             <div class="form-floating mb-4">
-                            <select class="form-select" id="floatingSelect" aria-label="Floating label select example" id="status"name="status">
-                                <option value=0 selected>Open</option>
-                                <option value=1>Lock</option>
+                                <select class="form-select" id="floatingSelect"
+                                    aria-label="Floating label select example" id="status" name="status">
+                                    <option value=0 selected>Open</option>
+                                    <option value=1>Lock</option>
                                 </select>
                                 <label for="floatingSelect">Status</label>
                             </div>
-                            <div class="d-flex align-items-center justify-content-between mb-4">
-                                <div class="form-check">
-                                    <input type="checkbox" class="form-check-input" id="rememberme" name="rememberme">
-                                    <label class="form-check-label" for="exampleCheck1">Remember Me</label>
-                                </div>
-                                <a href="">Forgot Password</a>
-                            </div>
+                            @error('status')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                             <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Sign In</button>
+                            @if($errors->any())
+                            {!! implode('', $errors->all('<div>:message</div>')) !!}
+                            @endif
                         </form>
                     </div>
                 </div>

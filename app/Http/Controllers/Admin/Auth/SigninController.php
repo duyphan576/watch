@@ -32,7 +32,7 @@ class SigninController extends Controller
             'password' => ['required'],
         ]);
 
-        if (Auth::attempt($credentials)) {
+        if (Auth::attempt(['Username'->$request->username, 'Passsword'->$request->password])) {
             $request->session()->regenerate();
  
             return redirect('/admin/product');

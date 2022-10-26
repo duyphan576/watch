@@ -7,7 +7,6 @@ use App\Http\Controllers\Admin\Product\ProductController;
 use App\Http\Controllers\Admin\Staff\StaffController;
 use App\Http\Controllers\Admin\Staff\AddStaffController;
 use App\Http\Controllers\Admin\Staff\EditStaffController;
-use App\Http\Controllers\Admin\Staff\EditStaffController;
 use App\Http\Controllers\Admin\Product\AddProductController;
 use App\Http\Controllers\Admin\Product\EditProductController;
 use App\Http\Controllers\Admin\Auth\SigninController;
@@ -55,14 +54,6 @@ Route::get('/shop/{strapID}', [ShopController::class, 'index']);
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('admin');
 
-Route::get('/admin/signup', function() {
-    return View('admin/staff/signup');
-});
-
-Route::get('/admin/signin', function() {
-    return View('admin/staff/signin');
-});
-
 Route::get('/admin/strap', [StrapController::class, 'index']);
 
 Route::get('/admin/strap/add', [AddStrapController::class, 'index'])->name('addStrap');
@@ -85,6 +76,7 @@ Route::post('/admin/role/delete', [RoleController::class, 'delete'])->name('dele
 
 Route::get('/admin/staff', [StaffController::class, 'index']);
 Route::get('/admin/staff/add', [AddStaffController::class, 'index'])->name('addStaff');
+Route::post('/admin/staff/add', [AddStaffController::class, 'store']);
 
 Route::get('/admin/staff/edit/{staffID}', [EditStaffController::class, 'index'])->name('editStaff');
 Route::post('/admin/staff/edit/{staffID}', [AddStaffController::class, 'accountstaff']);
