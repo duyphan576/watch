@@ -1,27 +1,24 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-<<<<<<< Updated upstream
-
-=======
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\Admin\Brand\BrandController;
 use App\Http\Controllers\Admin\Product\ProductController;
 use App\Http\Controllers\Admin\Staff\StaffController;
 use App\Http\Controllers\Admin\Staff\AddStaffController;
+use App\Http\Controllers\Admin\Staff\EditStaffController;
 use App\Http\Controllers\Admin\Product\AddProductController;
 use App\Http\Controllers\Admin\Product\EditProductController;
->>>>>>> Stashed changes
 /*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+  |--------------------------------------------------------------------------
+  | Web Routes
+  |--------------------------------------------------------------------------
+  |
+  | Here is where you can register web routes for your application. These
+  | routes are loaded by the RouteServiceProvider within a group which
+  | contains the "web" middleware group. Now create something great!
+  |
+ */
 
 Route::get('/', function () {
     return view('user/index');
@@ -75,26 +72,22 @@ Route::get('/contact', function () {
     return view('user/contact');
 });
 
-<<<<<<< Updated upstream
-Route::get('/customer-account', function () {
-    return view('user/customer-account');
-});
-=======
 Route::get('/admin/product', [ProductController::class, 'index']);
 
 Route::get('/admin/product/add', [AddProductController::class, 'index'])->name('addProduct');
 Route::post('/admin/product/add', [AddProductController::class, 'store']);
 
 Route::get('/admin/product/edit/{productID}', [EditProductController::class, 'index'])->name('editProduct');
-Route::post('/admin/product/edit/{productID}', [AddProductController::class, 'store']);
+Route::post('/admin/product/edit', [AddProductController::class, 'update']);
+
+Route::post('/admin/product/delete', [ProductController::class, 'delete'])->name('deleteProduct');
 
 Route::get('/admin/staff', [StaffController::class, 'index']);
 Route::get('/admin/staff/add', [AddStaffController::class, 'index'])->name('addStaff');
 Route::post('/admin/admin/staff/signin', [AddStaffController::class, 'accountstaff']);
 
-Route::get('/admin/staff/edit/{staffID}', [EditStaffController::class, 'index'])->name('editStaff');
-Route::post('/admin/staff/edit/{staffID}', [AddStaffController::class, 'accountstaff']);
->>>>>>> Stashed changes
+Route::get('/admin/staff/edit/{staffID}', [EditStaffController::class, 'index']);
+Route::post('/admin/staff/edit', [EditStaffController::class, 'update'])->name('editStaff');
 
 Route::get('/customer-orders', function () {
     return view('user/customer-orders');
@@ -132,7 +125,21 @@ Route::get('/text', function () {
     return view('user/text');
 });
 
-Route::get('/admin/dashboard', function () {
+Route::get('/shop/{strapID}', [ShopController::class, 'index']);
+
+// Route::get('/admin', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('admin');
+
+Route::get('/admin/signup', function() {
+    return View('admin/staff/signup');
+});
+
+Route::get('/admin/signin', function() {
+    return View('admin/staff/signin');
+});
+
+Route::get('/admin/dashboard', function() {
     return view('admin/index');
 });
 
@@ -160,7 +167,7 @@ Route::get('/admin/form', function () {
     return view('admin/form');
 });
 Route::get('/admin/signup', function () {
-    return view('admin/signup');
+    return view('/admin/staff/signup');
 });
 
 Route::get('/admin/table', function () {
@@ -174,4 +181,3 @@ Route::get('/admin/typography', function () {
 Route::get('/admin/widget', function () {
     return view('admin/widget');
 });
-
