@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\Product\ProductController;
 use App\Http\Controllers\Admin\Staff\StaffController;
 use App\Http\Controllers\Admin\Staff\AddStaffController;
 use App\Http\Controllers\Admin\Staff\EditStaffController;
+use App\Http\Controllers\Admin\Staff\EditStaffController;
 use App\Http\Controllers\Admin\Product\AddProductController;
 use App\Http\Controllers\Admin\Product\EditProductController;
 use App\Http\Controllers\Admin\Auth\SigninController;
@@ -48,7 +49,19 @@ Route::post('/admin/product/add', [AddProductController::class, 'store']);
 Route::get('/admin/product/edit/{productID}', [EditProductController::class, 'index']);
 Route::post('/admin/product/edit/', [EditProductController::class, 'update'])->name('editProduct');
 
-Route::post('/admin/product/delete', [ProductController::class, 'delete'])->name('deleteProduct');
+Route::get('/shop/{strapID}', [ShopController::class, 'index']);
+
+// Route::get('/admin', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('admin');
+
+Route::get('/admin/signup', function() {
+    return View('admin/staff/signup');
+});
+
+Route::get('/admin/signin', function() {
+    return View('admin/staff/signin');
+});
 
 Route::get('/admin/strap', [StrapController::class, 'index']);
 
