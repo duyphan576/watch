@@ -4,14 +4,18 @@ namespace App\Http\Controllers\Admin\Strap;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Strap;
 
-class AddStrapController extends Controller {
+class AddStrapController extends Controller
+{
 
-    public function index() {
+    public function index()
+    {
         return view('admin/strap/addstrap');
     }
 
-    public function store(Request $request) {
+    public function store(Request $request)
+    {
         $request->validate([
             'strapName' => ['required', 'string'],
         ]);
@@ -22,7 +26,6 @@ class AddStrapController extends Controller {
 
         $strap->save();
 
-        return back()->with('success','File has been uploaded.');
+        return back()->with('success', 'File has been uploaded.');
     }
-    
 }

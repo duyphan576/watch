@@ -9,6 +9,9 @@ use App\Http\Controllers\Admin\Staff\AddStaffController;
 use App\Http\Controllers\Admin\Product\AddProductController;
 use App\Http\Controllers\Admin\Product\EditProductController;
 use App\Http\Controllers\Admin\Auth\SigninController;
+use App\Http\Controllers\Admin\Role\RoleController;
+use App\Http\Controllers\Admin\Role\AddRoleController;
+use App\Http\Controllers\Admin\Role\EditRoleController;
 
 /*
   |--------------------------------------------------------------------------
@@ -46,100 +49,27 @@ Route::post('/admin/product/edit/', [EditProductController::class, 'update'])->n
 
 Route::post('/admin/product/delete', [ProductController::class, 'delete'])->name('deleteProduct');
 
-Route::get('/index', function () {
-    return view('user/index');
-});
+Route::get('/admin/strap', [StrapController::class, 'index']);
 
-Route::get('/404', function () {
-    return view('user/404');
-});
+Route::get('/admin/strap/add', [AddStrapController::class, 'index'])->name('addStrap');
+Route::post('/admin/strap/add', [AddStrapController::class, 'store']);
 
-Route::get('/basket', function () {
-    return view('user/basket');
-});
+Route::get('/admin/strap/edit/{StrapID}', [EditStrapController::class, 'index']);
+Route::post('/admin/strap/edit/', [EditStrapController::class, 'update'])->name('editStrap');
 
-Route::get('/blog', function () {
-    return view('user/blog');
-});
+Route::post('/admin/strap/delete', [StrapController::class, 'delete'])->name('deleteStrap');
 
-Route::get('/category-full', function () {
-    return view('user/category-full');
-});
+Route::get('/admin/role', [RoleController::class, 'index']);
 
-Route::get('/category-right', function () {
-    return view('user/category-right');
-});
+Route::get('/admin/role/add', [AddRoleController::class, 'index'])->name('addRole');
+Route::post('/admin/role/add', [AddRoleController::class, 'store']);
 
-Route::get('/category', function () {
-    return view('user/category');
-});
+Route::get('/admin/role/edit/{RoleID}', [EditRoleController::class, 'index']);
+Route::post('/admin/role/edit/', [EditRoleController::class, 'update'])->name('editRole');
 
-Route::get('/checkout1', function () {
-    return view('user/checkout1');
-});
+Route::post('/admin/role/delete', [RoleController::class, 'delete'])->name('deleteRole');
 
-Route::get('/checkout2', function () {
-    return view('user/checkout2');
-});
-
-Route::get('/checkout3', function () {
-    return view('user/checkout3');
-});
-
-Route::get('/checkout4', function () {
-    return view('user/checkout4');
-});
-
-Route::get('/contact', function () {
-    return view('user/contact');
-});
-
-
-Route::get('/admin/staff', [StaffController::class, 'index']);
-Route::get('/admin/staff/add', [AddStaffController::class, 'index'])->name('addStaff');
-Route::post('/admin/admin/staff/signin', [AddStaffController::class, 'accountstaff']);
-
-Route::get('/admin/staff/edit/{staffID}', [EditStaffController::class, 'index'])->name('editStaff');
-Route::post('/admin/staff/edit/{staffID}', [AddStaffController::class, 'accountstaff']);
-
-Route::get('/customer-orders', function () {
-    return view('user/customer-orders');
-});
-
-Route::get('/customer-order', function () {
-    return view('user/customer-order');
-});
-
-Route::get('/customer-wishlist', function () {
-    return view('user/customer-wishlist');
-});
-
-Route::get('/detail', function () {
-    return view('user/detail');
-});
-
-Route::get('/faq', function () {
-    return view('user/faq');
-});
-
-Route::get('/post', function () {
-    return view('user/post');
-});
-
-Route::get('/register', function () {
-    return view('user/register');
-});
-
-Route::get('/text-right', function () {
-    return view('user/text-right');
-});
-
-Route::get('/text', function () {
-    return view('user/text');
-});
-
-
-Route::get('/admin/dashboard', function() {
+Route::get('/admin/dashboard', function () {
     return view('admin/index');
 });
 
