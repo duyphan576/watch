@@ -20,4 +20,9 @@ class Staff extends Model
     ];
 
     protected $hidden = ['password'];
+
+    public function staffs() {
+        return $this->hasMany(Storage::class, 'StaffID', 'StaffID');
+    }
+
 }
