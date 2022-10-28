@@ -8,8 +8,9 @@
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Product Name</th>
-                            <th scope="col">Brand Name</th>
+                            <th scope="col">Brand</th>
                             <th scope="col">Quantity</th>
+                            <th scope="col">Button</th>
                         </tr>
                     </thead>
                     <tbody>
