@@ -4,11 +4,12 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\Admin\Brand\BrandController;
 use App\Http\Controllers\Admin\Product\ProductController;
+use App\Http\Controllers\Admin\Staff\StaffController;
+use App\Http\Controllers\Admin\Staff\AddStaffController;
+use App\Http\Controllers\Admin\Staff\EditStaffController;
 use App\Http\Controllers\Admin\Product\AddProductController;
 use App\Http\Controllers\Admin\Product\EditProductController;
-use App\Http\Controllers\Admin\Strap\StrapController;
-use App\Http\Controllers\Admin\Strap\AddStrapController;
-use App\Http\Controllers\Admin\Strap\EditStrapController;
+use App\Http\Controllers\Admin\Auth\SigninController;
 use App\Http\Controllers\Admin\Role\RoleController;
 use App\Http\Controllers\Admin\Role\AddRoleController;
 use App\Http\Controllers\Admin\Role\EditRoleController;
@@ -34,13 +35,8 @@ Route::get('/shop/{strapID}', [ShopController::class, 'index']);
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('admin');
 
-Route::get('/admin/signup', function() {
-    return View('admin/staff/signup');
-});
-
-Route::get('/admin/signin', function() {
-    return View('admin/staff/signin');
-});
+Route::get('/admin/signin', [SigninController::class, 'index'])->name('adminSignin');
+Route::post('/admin/signin', [SigninController::class, 'store']);
 
 Route::get('/admin/brand', [BrandController::class, 'index']);
 
@@ -52,7 +48,11 @@ Route::post('/admin/product/add', [AddProductController::class, 'store']);
 Route::get('/admin/product/edit/{productID}', [EditProductController::class, 'index']);
 Route::post('/admin/product/edit/', [EditProductController::class, 'update'])->name('editProduct');
 
-Route::post('/admin/product/delete', [ProductController::class, 'delete'])->name('deleteProduct');
+Route::get('/shop/{strapID}', [ShopController::class, 'index']);
+
+// Route::get('/admin', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('admin');
 
 Route::get('/admin/strap', [StrapController::class, 'index']);
 
@@ -73,6 +73,13 @@ Route::get('/admin/role/edit/{RoleID}', [EditRoleController::class, 'index']);
 Route::post('/admin/role/edit/', [EditRoleController::class, 'update'])->name('editRole');
 
 Route::post('/admin/role/delete', [RoleController::class, 'delete'])->name('deleteRole');
+
+Route::get('/admin/staff', [StaffController::class, 'index']);
+Route::get('/admin/staff/add', [AddStaffController::class, 'index'])->name('addStaff');
+Route::post('/admin/staff/add', [AddStaffController::class, 'store']);
+
+Route::get('/admin/staff/edit/{staffID}', [EditStaffController::class, 'index'])->name('editStaff');
+Route::post('/admin/staff/edit/{staffID}', [AddStaffController::class, 'accountstaff']);
 
 Route::get('/admin/dashboard', function () {
     return view('admin/index');
@@ -101,11 +108,6 @@ Route::get('/admin/element', function () {
 Route::get('/admin/form', function () {
     return view('admin/form');
 });
-
-Route::get('/admin/signin', function () {
-    return view('admin/signin');
-});
-
 Route::get('/admin/signup', function () {
     return view('/admin/staff/signup');
 });

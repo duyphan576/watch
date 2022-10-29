@@ -18,8 +18,8 @@ class RoleController extends Controller
 
     public function delete(Request $request)
     {
-        $role = Role::find($request->roleID);
-        $role->delete();
+        $product = Role::find($request->productID);
+        $product->delete();
 
         return back();
     }

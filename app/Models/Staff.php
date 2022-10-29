@@ -14,10 +14,16 @@ class Staff extends Model
     protected $primaryKey = 'StaffID';
 
     protected $fillable = [
-        'username',
-        'password',
-        'fullname',
+        'Username',
+        'Password',
+        'Fullname',
+        'RoleID',
+        'Status',
     ];
 
     protected $hidden = ['password'];
+
+    public function role() {
+        return $this->hasOne(Role::class, 'RoleID', 'RoleID');
+    }
 }
