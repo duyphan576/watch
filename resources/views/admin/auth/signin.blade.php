@@ -71,7 +71,11 @@
                             <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Sign In</button>
                         </form>
                         @if($errors->any())
-                        {!! implode('', $errors->all('<div>:message</div>')) !!}
+                        <div class="alert alert-danger" role="alert">
+                            @foreach ($errors->all() as $error)
+                            {{ $error }}
+                            @endforeach
+                        </div>
                         @endif
                     </div>
                 </div>

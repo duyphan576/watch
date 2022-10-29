@@ -3,10 +3,9 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Staff extends Model
-{
+class Staff extends Authenticatable {
     use HasFactory;
 
     protected $table = 'Staff';
@@ -25,5 +24,9 @@ class Staff extends Model
 
     public function role() {
         return $this->hasOne(Role::class, 'RoleID', 'RoleID');
+    }
+
+    public function getAuthPassword() {
+        return $this->Password;
     }
 }

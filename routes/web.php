@@ -30,56 +30,50 @@ Route::get('/', function () {
 });
 
 Route::get('/shop/{strapID}', [ShopController::class, 'index']);
-
-// Route::get('/admin', function () {
-//     return view('dashboard');
-// })->middleware(['auth', 'verified'])->name('admin');
-
+//---------------------------------------------------------------------------------------------
+//Admin route
 Route::get('/admin/signin', [SigninController::class, 'index'])->name('adminSignin');
 Route::post('/admin/signin', [SigninController::class, 'store']);
+Route::post('/admin/logout', [SigninController::class, 'destroy'])->name('adminLogout');
 
-Route::get('/admin/brand', [BrandController::class, 'index']);
+Route::middleware('auth.admin:admin')->group(function () {
+    Route::prefix('admin')->group(function () {
 
-Route::get('/admin/product', [ProductController::class, 'index']);
+        Route::get('/brand', [BrandController::class, 'index']);
+        Route::get('/brand/add', [AddStrapController::class, 'index'])->name('addBrand');
+        Route::post('/brand/add', [AddStrapController::class, 'store']);
+        Route::get('/brand/edit/{brandID}', [EditStrapController::class, 'index']);
+        Route::post('/brand/edit/', [EditStrapController::class, 'update'])->name('editBrand');
+        Route::post('/brand/delete', [StrapController::class, 'delete'])->name('deleteBrand');
 
-Route::get('/admin/product/add', [AddProductController::class, 'index'])->name('addProduct');
-Route::post('/admin/product/add', [AddProductController::class, 'store']);
+        Route::get('/strap', [StrapController::class, 'index']);
+        Route::get('/strap/add', [AddStrapController::class, 'index'])->name('addStrap');
+        Route::post('/strap/add', [AddStrapController::class, 'store']);
+        Route::get('/strap/edit/{strapID}', [EditStrapController::class, 'index']);
+        Route::post('/strap/edit/', [EditStrapController::class, 'update'])->name('editStrap');
+        Route::post('/strap/delete', [StrapController::class, 'delete'])->name('deleteStrap');
 
-Route::get('/admin/product/edit/{productID}', [EditProductController::class, 'index']);
-Route::post('/admin/product/edit/', [EditProductController::class, 'update'])->name('editProduct');
+        Route::get('/product', [ProductController::class, 'index']);
+        Route::get('/product/add', [AddProductController::class, 'index'])->name('addProduct');
+        Route::post('/product/add', [AddProductController::class, 'store']);
+        Route::get('/product/edit/{productID}', [EditProductController::class, 'index']);
+        Route::post('/product/edit/', [EditProductController::class, 'update'])->name('editProduct');
+        Route::post('/product/delete/', [ProductController::class, 'delete'])->name('deleteProduct');
 
-Route::get('/shop/{strapID}', [ShopController::class, 'index']);
+        Route::get('/role', [RoleController::class, 'index']);
+        Route::get('/role/add', [AddRoleController::class, 'index'])->name('addRole');
+        Route::post('/role/add', [AddRoleController::class, 'store']);
+        Route::get('/role/edit/{RoleID}', [EditRoleController::class, 'index']);
+        Route::post('/role/edit/', [EditRoleController::class, 'update'])->name('editRole');
+        Route::post('/role/delete', [RoleController::class, 'delete'])->name('deleteRole');
 
-// Route::get('/admin', function () {
-//     return view('dashboard');
-// })->middleware(['auth', 'verified'])->name('admin');
-
-Route::get('/admin/strap', [StrapController::class, 'index']);
-
-Route::get('/admin/strap/add', [AddStrapController::class, 'index'])->name('addStrap');
-Route::post('/admin/strap/add', [AddStrapController::class, 'store']);
-
-Route::get('/admin/strap/edit/{StrapID}', [EditStrapController::class, 'index']);
-Route::post('/admin/strap/edit/', [EditStrapController::class, 'update'])->name('editStrap');
-
-Route::post('/admin/strap/delete', [StrapController::class, 'delete'])->name('deleteStrap');
-
-Route::get('/admin/role', [RoleController::class, 'index']);
-
-Route::get('/admin/role/add', [AddRoleController::class, 'index'])->name('addRole');
-Route::post('/admin/role/add', [AddRoleController::class, 'store']);
-
-Route::get('/admin/role/edit/{RoleID}', [EditRoleController::class, 'index']);
-Route::post('/admin/role/edit/', [EditRoleController::class, 'update'])->name('editRole');
-
-Route::post('/admin/role/delete', [RoleController::class, 'delete'])->name('deleteRole');
-
-Route::get('/admin/staff', [StaffController::class, 'index']);
-Route::get('/admin/staff/add', [AddStaffController::class, 'index'])->name('addStaff');
-Route::post('/admin/staff/add', [AddStaffController::class, 'store']);
-
-Route::get('/admin/staff/edit/{staffID}', [EditStaffController::class, 'index'])->name('editStaff');
-Route::post('/admin/staff/edit/{staffID}', [AddStaffController::class, 'accountstaff']);
+        Route::get('/staff', [StaffController::class, 'index']);
+        Route::get('/staff/add', [AddStaffController::class, 'index'])->name('addStaff');
+        Route::post('/staff/add', [AddStaffController::class, 'store']);
+        Route::get('/staff/edit/{staffID}', [EditStaffController::class, 'index']);
+        Route::post('/staff/edit', [AddStaffController::class, 'accountstaff'])->name('editStaff');
+    });
+});
 
 Route::get('/admin/dashboard', function () {
     return view('admin/index');

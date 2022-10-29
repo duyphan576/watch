@@ -7,7 +7,7 @@
     <td>{{$status}}</td>
     <td>
         <div class="btn-group" role="group">
-             <a href="staff/edit/{{$id}}"><button type="button" class="btn btn-warning">Edit</button></a>
+             <a href="{{ url('admin/staff/edit/' . $id) }}"><button type="button" class="btn btn-warning">Edit</button></a>
          </div>
     </td>
 </tr>
