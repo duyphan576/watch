@@ -18,8 +18,8 @@ class StrapController extends Controller
 
     public function delete(Request $request)
     {
-        $product = Strap::find($request->productID);
-        $product->delete();
+        $strap = Strap::find($request->strapID);
+        $strap->delete();
 
         return back();
     }
