@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\Auth\SigninController;
 use App\Http\Controllers\Admin\Role\RoleController;
 use App\Http\Controllers\Admin\Role\AddRoleController;
 use App\Http\Controllers\Admin\Role\EditRoleController;
+use App\Http\Controllers\IndexController;
 
 /*
   |--------------------------------------------------------------------------
@@ -25,10 +26,7 @@ use App\Http\Controllers\Admin\Role\EditRoleController;
   |
  */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
+Route::get('/', [IndexController::class, 'index']);
 Route::get('/shop/{strapID}', [ShopController::class, 'index']);
 
 // Route::get('/admin', function () {
