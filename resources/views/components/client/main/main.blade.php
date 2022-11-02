@@ -1,31 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="An impressive and flawless site template that includes various UI elements and countless features, attractive ready-made blocks and rich pages, basically everything you need to create a unique and professional website.">
-  <meta name="keywords" content="bootstrap 5, business, corporate, creative, gulp, marketing, minimal, modern, multipurpose, one page, responsive, saas, sass, seo, startup, html5 template, site template">
-  <meta name="author" content="elemis">
-  <title>Sandbox - Modern & Multipurpose Bootstrap 5 Template</title>
-  <link rel="shortcut icon" href="./assets/img/favicon.png">
-  @vite(['resources/client/css/plugins.css', 'resources/client/css/style.css'])
-  <link rel="stylesheet" href="./assets/css/style.css">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Obaju : e-commerce template</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="{{ asset('/client/vendor/bootstrap/css/bootstrap.min.css') }}">
+    <!-- Font Awesome CSS-->
+    <link rel="stylesheet" href="{{ asset('/client/vendor/font-awesome/css/font-awesome.min.css') }}">
+    <!-- Google fonts - Roboto -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700">
+    <!-- owl carousel-->
+    <link rel="stylesheet" href="{{ asset('/client/vendor/owl.carousel/assets/owl.carousel.css') }}">
+    <link rel="stylesheet" href="{{ asset('/client/vendor/owl.carousel/assets/owl.theme.default.css') }}">
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="{{ asset('/client/css/style.default.css') }}" id="theme-stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="{{ asset('/client/css/custom.css') }}">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="{{ asset('/client/favicon.png') }}">
+    <!-- Tweaks for older IEs-->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
 </head>
 
 <body>
-  <div class="content-wrapper">
     @include('components.client.main.header');
-    {{$slot}}
-  </div>
-  <!-- /.content-wrapper -->
-  @include('components.client.main.footer');
-  <div class="progress-wrap">
-    <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
-      <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
-    </svg>
-  </div>
-  @vite(['resources/client/js/plugins.js', 'resources/client/js/theme.js'])
+    {{ $slot }}
+    @include('components.client.main.footer');
+    <!-- JavaScript files-->
+    <script src="{{ asset('client/vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('client/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('client/vendor/jquery.cookie/jquery.cookie.js') }}"></script>
+    <script src="{{ asset('client/vendor/owl.carousel/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('client/vendor/owl.carousel2.thumbs/owl.carousel2.thumbs.js') }}"></script>
+    <script src="{{ asset('client/js/front.js') }}"></script>
 </body>
 
 </html>

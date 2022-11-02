@@ -8,8 +8,7 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class SigninController extends Controller
-{
+class SigninController extends Controller {
     /**
      * Display the login view.
      *
@@ -32,12 +31,10 @@ class SigninController extends Controller
             'password' => ['required'],
         ]);
 
-        if (Auth::attempt(['Username'->$request->username, 'Passsword'->$request->password])) {
+        if (Auth::guard('admin')->attempt($credentials)) {
             $request->session()->regenerate();
- 
             return redirect('/admin/product');
         }
- 
         return back()->withErrors([
             'username' => 'The provided credentials do not match our records.',
         ])->onlyInput('username');
@@ -49,14 +46,13 @@ class SigninController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function destroy(Request $request)
-    {
-        Auth::guard('web')->logout();
+    public function destroy(Request $request) {
+        Auth::guard('admin')->logout();
 
         $request->session()->invalidate();
 
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return redirect('/admin/signin');
     }
 }

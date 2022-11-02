@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ShopController;
+use App\Http\Controllers\Client\Category\CategoryController;
+use App\Http\Controllers\Client\Category\DetailController;
 use App\Http\Controllers\Admin\Brand\BrandController;
 use App\Http\Controllers\Admin\Product\ProductController;
 use App\Http\Controllers\Admin\Staff\StaffController;
@@ -13,6 +14,9 @@ use App\Http\Controllers\Admin\Auth\SigninController;
 use App\Http\Controllers\Admin\Role\RoleController;
 use App\Http\Controllers\Admin\Role\AddRoleController;
 use App\Http\Controllers\Admin\Role\EditRoleController;
+use App\Http\Controllers\Client\Auth\LoginController;
+use App\Http\Controllers\Client\Auth\RegisterController;
+use App\Http\Controllers\Client\Cart\CartController;
 
 /*
   |--------------------------------------------------------------------------
@@ -26,10 +30,19 @@ use App\Http\Controllers\Admin\Role\EditRoleController;
  */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('User.index');
 });
 
-Route::get('/shop/{strapID}', [ShopController::class, 'index']);
+Route::get('/category/{strapID}', [CategoryController::class, 'index']);
+Route::get('/category/detail/{productID}', [DetailController::class, 'index']);
+
+Route::get('/cart', [CartController::class, 'index']);
+Route::get('/cart/add/{productID}', [CartController::class, 'add']);
+
+Route::get('/register', [RegisterController::class, 'index'])->name('registerUser');
+Route::post('/register', [RegisterController::class, 'store']);
+
+Route::post('/login', [LoginController::class, 'store'])->name('loginUser');
 //---------------------------------------------------------------------------------------------
 //Admin route
 Route::get('/admin/signin', [SigninController::class, 'index'])->name('adminSignin');
@@ -73,47 +86,4 @@ Route::middleware('auth.admin:admin')->group(function () {
         Route::get('/staff/edit/{staffID}', [EditStaffController::class, 'index']);
         Route::post('/staff/edit', [AddStaffController::class, 'accountstaff'])->name('editStaff');
     });
-});
-
-Route::get('/admin/dashboard', function () {
-    return view('admin/index');
-});
-
-Route::get('/admin/404', function () {
-    return view('admin/404');
-});
-
-Route::get('/admin/blank', function () {
-    return view('admin/blank');
-});
-
-Route::get('/admin/button', function () {
-    return view('admin/button');
-});
-
-Route::get('/admin/chart', function () {
-    return view('admin/chart');
-});
-
-Route::get('/admin/element', function () {
-    return view('admin/element');
-});
-
-Route::get('/admin/form', function () {
-    return view('admin/form');
-});
-Route::get('/admin/signup', function () {
-    return view('/admin/staff/signup');
-});
-
-Route::get('/admin/table', function () {
-    return view('admin/table');
-});
-
-Route::get('/admin/typography', function () {
-    return view('admin/typography');
-});
-
-Route::get('/admin/widget', function () {
-    return view('admin/widget');
 });
