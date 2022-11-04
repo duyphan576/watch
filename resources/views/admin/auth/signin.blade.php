@@ -71,15 +71,11 @@
                             <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Sign In</button>
                         </form>
                         @if($errors->any())
-<<<<<<<< HEAD:resources/views/admin/auth/signin.blade.php
                         <div class="alert alert-danger" role="alert">
                             @foreach ($errors->all() as $error)
                             {{ $error }}
                             @endforeach
                         </div>
-========
-                        {!! implode('', $errors->all('<div>:message</div>')) !!}
->>>>>>>> Duy-New:resources/views/Admin/auth/signin.blade.php
                         @endif
                     </div>
                 </div>

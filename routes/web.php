@@ -14,9 +14,13 @@ use App\Http\Controllers\Admin\Auth\SigninController;
 use App\Http\Controllers\Admin\Role\RoleController;
 use App\Http\Controllers\Admin\Role\AddRoleController;
 use App\Http\Controllers\Admin\Role\EditRoleController;
+use App\Http\Controllers\Admin\Strap\StrapController;
+use App\Http\Controllers\Admin\Strap\AddStrapController;
+use App\Http\Controllers\Admin\Strap\EditStrapController;
 use App\Http\Controllers\Client\Auth\LoginController;
 use App\Http\Controllers\Client\Auth\RegisterController;
 use App\Http\Controllers\Client\Cart\CartController;
+use App\Http\Controllers\Client\Checkout\CheckoutController;
 
 /*
   |--------------------------------------------------------------------------
@@ -33,16 +37,24 @@ Route::get('/', function () {
     return view('User.index');
 });
 
-Route::get('/category/{strapID}', [CategoryController::class, 'index']);
+Route::get('/category/{strapID?}', [CategoryController::class, 'index']);
 Route::get('/category/detail/{productID}', [DetailController::class, 'index']);
 
 Route::get('/cart', [CartController::class, 'index']);
 Route::get('/cart/add/{productID}', [CartController::class, 'add']);
+Route::get('/cart/remove/{productID}', [CartController::class, 'remove']);
+Route::get('/cart/update/{rowId}/{quantity}', [CartController::class, 'update']);
 
 Route::get('/register', [RegisterController::class, 'index'])->name('registerUser');
 Route::post('/register', [RegisterController::class, 'store']);
 
 Route::post('/login', [LoginController::class, 'store'])->name('loginUser');
+Route::get('/logout', [LoginController::class, 'destroy'])->name('logoutUser');
+
+Route::get('/checkout/address', [CheckoutController::class, 'address']);
+Route::get('/checkout/delivery-method', [CheckoutController::class, 'deliveryMethod']);
+Route::get('/checkout/payment-method', [CheckoutController::class, 'paymentMethod']);
+Route::get('/checkout/oder-review', [CheckoutController::class, 'orderReview']);
 //---------------------------------------------------------------------------------------------
 //Admin route
 Route::get('/admin/signin', [SigninController::class, 'index'])->name('adminSignin');

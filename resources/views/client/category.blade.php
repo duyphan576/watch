@@ -23,9 +23,13 @@
               </div>
               <div class="card-body">
                 <ul class="nav nav-pills flex-column category-menu">
+                  <li>
+                    <a href="{{ url('/category') }}" class="nav-link {{ Route::current()->parameter('strapID') == null ? 'active' : '' }}">All <span
+                        class="badge badge-secondary">42</span></a>
+                  </li>
                   @foreach ($straps as $strapFilter)
                   <li>
-                    <a href="{{ url('/category/' . $strapFilter->StrapID) }}" class="nav-link {{ $strapFilter->StrapID == $strap->StrapID ? 'active' : '' }}">{{ $strapFilter->StrapName }} <span
+                    <a href="{{ url('/category/' . $strapFilter->StrapID) }}" class="nav-link {{ $strapFilter->StrapID == Route::current()->parameter('strapID') ? 'active' : '' }}">{{ $strapFilter->StrapName }} <span
                         class="badge badge-secondary">42</span></a>
                   </li>
                   @endforeach
@@ -39,6 +43,9 @@
               </div>
               <div class="card-body">
                 <form action="#" method="GET">
+                  @if (Request::input('search'))
+                      <input type="text" name="search" value="{{ Request::input('search') }}" hidden>
+                  @endif
                   <div class="form-group">
                     @foreach ($brands as $brand)
                     <div class="checkbox">

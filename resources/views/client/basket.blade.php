@@ -14,7 +14,8 @@
           </div>
           <div id="basket" class="col-lg-9">
             <div class="box">
-              <form method="post" action="checkout1">
+              <form method="post" action="">
+                @csrf
                 <h1>Shopping cart</h1>
                 <p class="text-muted">You currently have {{ Cart::count() }} item(s) in your cart.</p>
                 <div class="table-responsive">
@@ -33,11 +34,12 @@
                         <td><a href="#"><img src="User/img/detailsquare.jpg" alt="White Blouse Armani"></a></td>
                         <td><a href="#">{{ $item->name }}</a></td>
                         <td>
-                          <input type="number" value="{{ $item->qty }}" class="form-control">
+                          <input type="number" min=1 rowId="{{ $item->rowId }}" value="{{ $item->qty }}"
+                            class="form-control prc">
                         </td>
                         <td>{!! number_format($item->price, 0, '', '.') . ' &#8363' !!}</td>
                         <td>{!! number_format($item->total, 0, '', '.') . ' &#8363' !!}</td>
-                        <td><a href="#"><i class="fa fa-trash-o"></i></a></td>
+                        <td><a href="{{ url('/cart/remove/' . $item->rowId) }}"><i class="fa fa-trash-o"></i></a></td>
                       </tr>
                       @endforeach
                     </tbody>
@@ -51,12 +53,15 @@
                 </div>
                 <!-- /.table-responsive-->
                 <div class="box-footer d-flex justify-content-between flex-column flex-lg-row">
-                  <div class="left"><a href="category" class="btn btn-outline-secondary"><i
-                        class="fa fa-chevron-left"></i> Continue shopping</a></div>
+                  <div class="left">
+                    <a href="category" class="btn btn-outline-secondary">
+                      <i class="fa fa-chevron-left"></i> Continue shopping
+                    </a>
+                  </div>
                   <div class="right">
-                    <button class="btn btn-outline-secondary"><i class="fa fa-refresh"></i> Update cart</button>
-                    <button type="submit" class="btn btn-primary">Proceed to checkout <i
-                        class="fa fa-chevron-right"></i></button>
+                    <button type="button" class="btn btn-outline-secondary" onclick="location.reload()"><i class="fa fa-refresh"></i> Update
+                      cart</button>
+                    <button type="submit" class="btn btn-primary">Proceed to checkout <i class="fa fa-chevron-right"></i></button>
                   </div>
                 </div>
               </form>
@@ -177,4 +182,32 @@
       </div>
     </div>
   </div>
+  <x-slot:script>
+    <script>
+      $('.table').on('input', '.prc', function() {
+        var rowId = $(this).attr('rowId');
+        var quantity = $(this).val();
+        var prevQuantity = $(this).attr('value');
+        if ($.isNumeric(quantity) && (quantity != prevQuantity) && (quantity != 0)) {
+          $.ajax({
+              type: 'get',
+              url: '/cart/update/' + rowId + '/' + quantity,
+              success: function(data){
+                  console.log(data);
+                  if (data == 'success') {                
+                    location.reload();
+                  }
+                  else{
+                      alert('failure');
+                  }
+  
+              },
+              error:function(data){
+  
+              }
+          });
+        }
+      });
+    </script>
+  </x-slot:script>
 </x-client.main.main>

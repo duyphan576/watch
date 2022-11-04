@@ -40,6 +40,7 @@
     <script src="{{ asset('client/vendor/owl.carousel/owl.carousel.min.js') }}"></script>
     <script src="{{ asset('client/vendor/owl.carousel2.thumbs/owl.carousel2.thumbs.js') }}"></script>
     <script src="{{ asset('client/js/front.js') }}"></script>
+    {{ $script = '' }}
 </body>
 
 </html>

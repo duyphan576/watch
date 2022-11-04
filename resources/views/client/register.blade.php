@@ -26,15 +26,15 @@
                 <div class="form-group">
                   <label for="username">Username</label>
                   @error('username')
-                            <div class="alert alert-danger">{{ $message }}</div>
-                            @enderror
+                  <div class="alert alert-danger">{{ $message }}</div>
+                  @enderror
                   <input id="username" type="text" name="username" class="form-control">
                 </div>
                 <div class="form-group">
                   <label for="password">Password</label>
                   @error('password')
-                            <div class="alert alert-danger">{{ $message }}</div>
-                            @enderror
+                  <div class="alert alert-danger">{{ $message }}</div>
+                  @enderror
                   <input id="password" type="password" name="password" class="form-control">
                 </div>
                 <div class="form-group">
@@ -44,22 +44,22 @@
                 <div class="form-group">
                   <label for="fullname">Full Name</label>
                   @error('fullname')
-                            <div class="alert alert-danger">{{ $message }}</div>
-                            @enderror
+                  <div class="alert alert-danger">{{ $message }}</div>
+                  @enderror
                   <input id="fullname" type="text" name="fullname" class="form-control">
                 </div>
                 <div class="form-group">
                   <label for="birthdate">Birthdate</label>
                   @error('birthdate')
-                            <div class="alert alert-danger">{{ $message }}</div>
-                            @enderror
+                  <div class="alert alert-danger">{{ $message }}</div>
+                  @enderror
                   <input id="birthdate" type="date" name="birthdate" class="form-control">
                 </div>
                 <div class="form-group">
                   <label for="phone">Phone</label>
                   @error('phone')
-                            <div class="alert alert-danger">{{ $message }}</div>
-                            @enderror
+                  <div class="alert alert-danger">{{ $message }}</div>
+                  @enderror
                   <input id="phone" type="number" name="phone" class="form-control">
                 </div>
                 <div class="text-center">
@@ -80,10 +80,16 @@
                 @csrf
                 <div class="form-group">
                   <label for="username">Username</label>
+                  @error('fullname')
+                  <div class="alert alert-danger">{{ $message }}</div>
+                  @enderror
                   <input id="username" type="text" name="username" class="form-control">
                 </div>
                 <div class="form-group">
                   <label for="password">Password</label>
+                  @error('password')
+                  <div class="alert alert-danger">{{ $message }}</div>
+                  @enderror
                   <input id="password" type="password" class="form-control">
                 </div>
                 <div class="text-center">

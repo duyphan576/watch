@@ -10,6 +10,10 @@
                 <div class="col-lg-6 offer mb-3 mb-lg-0"><a href="#" class="btn btn-success btn-sm">Offer of the
                         day</a><a href="#" class="ml-1">Get flat 35% off on orders over $50!</a></div>
                 <div class="col-lg-6 text-center text-lg-right">
+                    @if (Auth::check())
+                    <span class="mr-4 text-white">{{ Auth::user()->Fullname }}</span>
+                    <a href="{{ route('logoutUser') }}" class="btn btn-danger btn-sm">Logout</a>
+                    @else
                     <ul class="menu list-inline mb-0">
                         <li class="list-inline-item"><a href="#" data-toggle="modal"
                                 data-target="#login-modal">Login</a></li>
@@ -17,6 +21,7 @@
                         <li class="list-inline-item"><a href="contact">Contact</a></li>
                         <li class="list-inline-item"><a href="#">Recently viewed</a></li>
                     </ul>
+                    @endif
                 </div>
             </div>
         </div>
@@ -33,18 +38,25 @@
                             @csrf
                             <div class="form-group">
                                 <label for="username">Username</label>
+                                @error('fullname')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                                 <input id="username" type="text" name="username" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label for="password">Password</label>
-                                <input id="password" type="password" class="form-control">
+                                @error('password')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                                <input id="password" type="password" name="password" class="form-control">
                             </div>
                             <p class="text-center">
                                 <button class="btn btn-primary"><i class="fa fa-sign-in"></i> Log in</button>
                             </p>
                         </form>
                         <p class="text-center text-muted">Not registered yet?</p>
-                        <p class="text-center text-muted"><a href="{{ url('/register') }}"><strong>Register now</strong></a>! It is
+                        <p class="text-center text-muted"><a href="{{ url('/register') }}"><strong>Register
+                                    now</strong></a>! It is
                             easy and done in 1 minute and gives you access to special discounts and much more!</p>
                     </div>
                 </div>
@@ -297,11 +309,11 @@
     </nav>
     <div id="search" class="collapse">
         <div class="container">
-            <form role="search" class="ml-auto">
+            <form role="search" class="ml-auto" action="{{ url('category') }}" method="GET">
                 <div class="input-group">
-                    <input type="text" placeholder="Search" class="form-control">
+                    <input type="text" placeholder="Search" class="form-control" name="search">
                     <div class="input-group-append">
-                        <button type="button" class="btn btn-primary"><i class="fa fa-search"></i></button>
+                        <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
                     </div>
                 </div>
             </form>
