@@ -9,7 +9,7 @@ use Illuminate\Http\Response;
 
 class CartController extends Controller {
     public function index() {
-        return view('client.basket', []);
+        return view('client.basket');
     }
 
     public function add($productID) {

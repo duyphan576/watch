@@ -21,6 +21,7 @@ use App\Http\Controllers\Client\Auth\LoginController;
 use App\Http\Controllers\Client\Auth\RegisterController;
 use App\Http\Controllers\Client\Cart\CartController;
 use App\Http\Controllers\Client\Checkout\CheckoutController;
+use App\Http\Controllers\Client\Customer\OrderController;
 
 /*
   |--------------------------------------------------------------------------
@@ -52,9 +53,16 @@ Route::post('/login', [LoginController::class, 'store'])->name('loginUser');
 Route::get('/logout', [LoginController::class, 'destroy'])->name('logoutUser');
 
 Route::get('/checkout/address', [CheckoutController::class, 'address']);
+Route::post('/checkout/address', [CheckoutController::class, 'storeAddress']);
 Route::get('/checkout/delivery-method', [CheckoutController::class, 'deliveryMethod']);
+Route::post('/checkout/delivery-method', [CheckoutController::class, 'storeDeliveryMethod']);
 Route::get('/checkout/payment-method', [CheckoutController::class, 'paymentMethod']);
-Route::get('/checkout/oder-review', [CheckoutController::class, 'orderReview']);
+Route::post('/checkout/payment-method', [CheckoutController::class, 'StorePaymentMethod']);
+Route::get('/checkout/order-review', [CheckoutController::class, 'orderReview']);
+Route::post('/checkout/order-review', [CheckoutController::class, 'orderReview']);
+Route::post('/checkout/place-order', [CheckoutController::class, 'placeOrder'])->name('placeOrder');
+
+Route::get('/customer/orders', [OrderController::class, 'index']);
 //---------------------------------------------------------------------------------------------
 //Admin route
 Route::get('/admin/signin', [SigninController::class, 'index'])->name('adminSignin');

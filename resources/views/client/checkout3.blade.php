@@ -14,7 +14,8 @@
           </div>
           <div id="checkout" class="col-lg-9">
             <div class="box">
-              <form method="get" action="checkout4">
+              <form method="POST" action="">
+                @csrf
                 <h1>Checkout - Payment method</h1>
                 <div class="nav flex-column flex-sm-row nav-pills"><a href="checkout1"
                     class="nav-link flex-sm-fill text-sm-center"> <i class="fa fa-map-marker"> </i>Address</a><a
@@ -30,7 +31,7 @@
                         <h4>Paypal</h4>
                         <p>We like it all.</p>
                         <div class="box-footer text-center">
-                          <input type="radio" name="payment" value="payment1">
+                          <input type="radio" name="payment" value="1">
                         </div>
                       </div>
                     </div>
@@ -39,7 +40,7 @@
                         <h4>Payment gateway</h4>
                         <p>VISA and Mastercard only.</p>
                         <div class="box-footer text-center">
-                          <input type="radio" name="payment" value="payment2">
+                          <input type="radio" name="payment" value="2">
                         </div>
                       </div>
                     </div>
@@ -48,7 +49,7 @@
                         <h4>Cash on delivery</h4>
                         <p>You pay when you get it.</p>
                         <div class="box-footer text-center">
-                          <input type="radio" name="payment" value="payment3">
+                          <input type="radio" name="payment" value="3">
                         </div>
                       </div>
                     </div>
