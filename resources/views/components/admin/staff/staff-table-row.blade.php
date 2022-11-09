@@ -1,7 +1,6 @@
 <tr>
     <th scope="row">{{$id}}</th>
     <td>{{$username}}</td>
-    <td>{{$password}}</td>
     <td>{{$role}}</td>
     <td>{{$fullname}}</td>
     <td>{{$status}}</td>
