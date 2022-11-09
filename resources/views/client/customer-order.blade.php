@@ -1,4 +1,4 @@
-<x-client.amin.main>
+<x-client.main.main>
   <div id="all">
     <div id="content">
       <div class="container">
@@ -35,8 +35,8 @@
           </div>
           <div id="customer-order" class="col-lg-9">
             <div class="box">
-              <h1>Order #1735</h1>
-              <p class="lead">Order #1735 was placed on <strong>22/06/2013</strong> and is currently <strong>Being
+              <h1>Order #{{ $order->OrderID }}</h1>
+              <p class="lead">Order #{{$order->OrderID}} was placed on <strong>{{ $order->Date }}</strong> and is currently <strong>Being
                   prepared</strong>.</p>
               <p class="text-muted">If you have any questions, please feel free to <a href="contact">contact us</a>, our
                 customer service center is working for you 24/7.</p>
@@ -48,63 +48,33 @@
                       <th colspan="2">Product</th>
                       <th>Quantity</th>
                       <th>Unit price</th>
-                      <th>Discount</th>
                       <th>Total</th>
                     </tr>
                   </thead>
                   <tbody>
+                    @foreach ($orderDetails as $orderDetail)
                     <tr>
                       <td><a href="#"><img src="User/img/detailsquare.jpg" alt="White Blouse Armani"></a></td>
-                      <td><a href="#">White Blouse Armani</a></td>
-                      <td>2</td>
-                      <td>$123.00</td>
-                      <td>$0.00</td>
-                      <td>$246.00</td>
+                      <td><a href="#">{{ $orderDetail->product->ProductName }}</a></td>
+                      <td>{{ $orderDetail->Quantity }}</td>
+                      <td>{!! number_format($orderDetail->Price, 0, '', '.') . ' &#8363' !!}</td>
+                      <td>{!! number_format(($orderDetail->Price * $orderDetail->Quantity), 0, '', '.') . ' &#8363' !!}</td>
                     </tr>
-                    <tr>
-                      <td><a href="#"><img src="User/img/basketsquare.jpg" alt="Black Blouse Armani"></a></td>
-                      <td><a href="#">Black Blouse Armani</a></td>
-                      <td>1</td>
-                      <td>$200.00</td>
-                      <td>$0.00</td>
-                      <td>$200.00</td>
-                    </tr>
+                    @endforeach
                   </tbody>
                   <tfoot>
                     <tr>
-                      <th colspan="5" class="text-right">Order subtotal</th>
-                      <th>$446.00</th>
-                    </tr>
-                    <tr>
-                      <th colspan="5" class="text-right">Shipping and handling</th>
-                      <th>$10.00</th>
-                    </tr>
-                    <tr>
-                      <th colspan="5" class="text-right">Tax</th>
-                      <th>$0.00</th>
-                    </tr>
-                    <tr>
-                      <th colspan="5" class="text-right">Total</th>
-                      <th>$456.00</th>
+                      <th colspan="4" class="text-right">Total</th>
+                      <th>{!! number_format(($order->TotalPrice), 0, '', '.') . ' &#8363' !!}</th>
                     </tr>
                   </tfoot>
                 </table>
               </div>
               <!-- /.table-responsive-->
-              <div class="row addresses">
-                <div class="col-lg-6">
-                  <h2>Invoice address</h2>
-                  <p>John Brown<br>13/25 New Avenue<br>New Heaven<br>45Y 73J<br>England<br>Great Britain</p>
-                </div>
-                <div class="col-lg-6">
-                  <h2>Shipping address</h2>
-                  <p>John Brown<br>13/25 New Avenue<br>New Heaven<br>45Y 73J<br>England<br>Great Britain</p>
-                </div>
-              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</x-client.amin.main>
+</x-client.main.main>

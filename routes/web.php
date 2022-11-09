@@ -21,6 +21,7 @@ use App\Http\Controllers\Client\Auth\LoginController;
 use App\Http\Controllers\Client\Auth\RegisterController;
 use App\Http\Controllers\Client\Cart\CartController;
 use App\Http\Controllers\Client\Checkout\CheckoutController;
+use App\Http\Controllers\Client\Customer\AccountController;
 use App\Http\Controllers\Client\Customer\OrderController;
 
 /*
@@ -35,7 +36,7 @@ use App\Http\Controllers\Client\Customer\OrderController;
  */
 
 Route::get('/', function () {
-    return view('User.index');
+    return view('client.index');
 });
 
 Route::get('/category/{strapID?}', [CategoryController::class, 'index']);
@@ -52,17 +53,24 @@ Route::post('/register', [RegisterController::class, 'store']);
 Route::post('/login', [LoginController::class, 'store'])->name('loginUser');
 Route::get('/logout', [LoginController::class, 'destroy'])->name('logoutUser');
 
-Route::get('/checkout/address', [CheckoutController::class, 'address']);
-Route::post('/checkout/address', [CheckoutController::class, 'storeAddress']);
-Route::get('/checkout/delivery-method', [CheckoutController::class, 'deliveryMethod']);
-Route::post('/checkout/delivery-method', [CheckoutController::class, 'storeDeliveryMethod']);
-Route::get('/checkout/payment-method', [CheckoutController::class, 'paymentMethod']);
-Route::post('/checkout/payment-method', [CheckoutController::class, 'StorePaymentMethod']);
-Route::get('/checkout/order-review', [CheckoutController::class, 'orderReview']);
-Route::post('/checkout/order-review', [CheckoutController::class, 'orderReview']);
-Route::post('/checkout/place-order', [CheckoutController::class, 'placeOrder'])->name('placeOrder');
+Route::middleware('auth')->group(function () {
+    Route::get('/checkout/address', [CheckoutController::class, 'address']);
+    Route::post('/checkout/address', [CheckoutController::class, 'storeAddress']);
+    Route::get('/checkout/delivery-method', [CheckoutController::class, 'deliveryMethod']);
+    Route::post('/checkout/delivery-method', [CheckoutController::class, 'storeDeliveryMethod']);
+    Route::get('/checkout/payment-method', [CheckoutController::class, 'paymentMethod']);
+    Route::post('/checkout/payment-method', [CheckoutController::class, 'StorePaymentMethod']);
+    Route::get('/checkout/order-review', [CheckoutController::class, 'orderReview']);
+    Route::post('/checkout/order-review', [CheckoutController::class, 'orderReview']);
+    Route::post('/checkout/place-order', [CheckoutController::class, 'placeOrder'])->name('placeOrder');
 
-Route::get('/customer/orders', [OrderController::class, 'index']);
+    Route::get('/customer/order', [OrderController::class, 'index']);
+    Route::get('/customer/order/{orderID}', [OrderController::class, 'orderDetail']);
+    Route::get('/customer/account', [AccountController::class, 'index']);
+    Route::post('/customer/account/change-password', [AccountController::class, 'updatePassword'])->name('changeUserPassword');
+    Route::post('/customer/account/change-info', [AccountController::class, 'updateInfo'])->name('changeUserInfo');
+});
+
 //---------------------------------------------------------------------------------------------
 //Admin route
 Route::get('/admin/signin', [SigninController::class, 'index'])->name('adminSignin');

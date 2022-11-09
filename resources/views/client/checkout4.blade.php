@@ -17,12 +17,20 @@
               <form method="POST" action="{{ route('placeOrder') }}">
                 @csrf
                 <h1>Checkout - Order review</h1>
-                <div class="nav flex-column flex-sm-row nav-pills"><a href="checkout1"
-                    class="nav-link flex-sm-fill text-sm-center"> <i class="fa fa-map-marker"> </i>Address</a><a
-                    href="checkout2" class="nav-link flex-sm-fill text-sm-center"> <i class="fa fa-truck"> </i>Delivery
-                    Method</a><a href="checkout3" class="nav-link flex-sm-fill text-sm-center"> <i class="fa fa-money">
-                    </i>Payment Method</a><a href="#" class="nav-link flex-sm-fill text-sm-center active"> <i
-                      class="fa fa-eye"> </i>Order Review</a></div>
+                <div class="nav flex-column flex-sm-row nav-pills">
+                  <a href="checkout1" class="nav-link flex-sm-fill text-sm-center">
+                    <i class="fa fa-map-marker"> </i>Address
+                  </a>
+                  <a href="checkout2" class="nav-link flex-sm-fill text-sm-center">
+                    <i class="fa fa-truck"> </i>Delivery Method
+                  </a>
+                  <a href="checkout3" class="nav-link flex-sm-fill text-sm-center">
+                    <i class="fa fa-money"> </i>Payment Method
+                  </a>
+                  <a href="#" class="nav-link flex-sm-fill text-sm-center active">
+                    <i class="fa fa-eye"> </i>Order Review
+                  </a>
+                </div>
                 <div class="content">
                   <div class="table-responsive">
                     <table class="table">

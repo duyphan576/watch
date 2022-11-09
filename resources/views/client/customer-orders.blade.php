@@ -76,7 +76,7 @@
                           @endswitch
                         </span>
                       </td>
-                      <td><a href="customer-order" class="btn btn-primary btn-sm">View</a></td>
+                      <td><a href="{{ url('/customer/order/' . $order->OrderID) }}" class="btn btn-primary btn-sm">View</a></td>
                     </tr>
                     @endforeach
                   </tbody>
