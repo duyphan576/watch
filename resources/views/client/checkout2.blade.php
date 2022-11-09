@@ -14,7 +14,8 @@
           </div>
           <div id="checkout" class="col-lg-9">
             <div class="box">
-              <form method="get" action="checkout3">
+              <form method="POST" action="">
+                @csrf
                 <h1>Checkout - Delivery method</h1>
                 <div class="nav flex-column flex-sm-row nav-pills"><a href="checkout1"
                     class="nav-link flex-sm-fill text-sm-center"> <i class="fa fa-map-marker"> </i>Address</a><a

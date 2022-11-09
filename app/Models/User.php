@@ -20,7 +20,7 @@ class User extends Authenticatable {
         'Phone'
     ];
 
-    protected $hidden = ['password'];
+    protected $hidden = ['Password'];
 
     public function getAuthPassword() {
         return $this->Password;

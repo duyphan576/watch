@@ -14,7 +14,17 @@
           </div>
           <div id="checkout" class="col-lg-9">
             <div class="box">
-              <form method="get" action="checkout2">
+              <form method="POST" action="">
+                @csrf
+                @if ($errors->any())
+                <div class="alert alert-danger">
+                  <ul>
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                  </ul>
+                </div>
+                @endif
                 <h1>Checkout - Address</h1>
                 <div class="nav flex-column flex-md-row nav-pills text-center"><a href="checkout1"
                     class="nav-link flex-sm-fill text-sm-center active"> <i class="fa fa-map-marker"> </i>Address</a><a
@@ -27,7 +37,8 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="firstname">Fullname</label>
-                        <input id="firstname" name="fullname" type="text" class="form-control">
+                        <input id="firstname" name="fullname" type="text" class="form-control"
+                          value="{{ $user->Fullname }}">
                       </div>
                     </div>
                     <div class="col-md-6">
@@ -41,8 +52,8 @@
                   <div class="row">
                     <div class="col-md-6">
                       <div class="form-group">
-                        <label for="phone">Telephone</label>
-                        <input id="phone" type="text" class="form-control">
+                        <label for="phone">Phone</label>
+                        <input id="phone" name="phone" type="tel" class="form-control" value="{{ $user->Phone }}">
                       </div>
                     </div>
                     <div class="col-md-6">

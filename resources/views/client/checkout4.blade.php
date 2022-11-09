@@ -14,7 +14,8 @@
           </div>
           <div id="checkout" class="col-lg-9">
             <div class="box">
-              <form method="get" action="checkout4">
+              <form method="POST" action="{{ route('placeOrder') }}">
+                @csrf
                 <h1>Checkout - Order review</h1>
                 <div class="nav flex-column flex-sm-row nav-pills"><a href="checkout1"
                     class="nav-link flex-sm-fill text-sm-center"> <i class="fa fa-map-marker"> </i>Address</a><a
@@ -30,32 +31,24 @@
                           <th colspan="2">Product</th>
                           <th>Quantity</th>
                           <th>Unit price</th>
-                          <th>Discount</th>
                           <th>Total</th>
                         </tr>
                       </thead>
                       <tbody>
+                        @foreach (Cart::content() as $item)
                         <tr>
                           <td><a href="#"><img src="User/img/detailsquare.jpg" alt="White Blouse Armani"></a></td>
-                          <td><a href="#">White Blouse Armani</a></td>
-                          <td>2</td>
-                          <td>$123.00</td>
-                          <td>$0.00</td>
-                          <td>$246.00</td>
+                          <td><a href="#">{{ $item->name }}</a></td>
+                          <td>{{ $item->qty }}</td>
+                          <td>{!! number_format($item->price, 0, '', '.') . ' &#8363' !!}</td>
+                          <td>{!! number_format($item->total, 0, '', '.') . ' &#8363' !!}</td>
                         </tr>
-                        <tr>
-                          <td><a href="#"><img src="User/img/basketsquare.jpg" alt="Black Blouse Armani"></a></td>
-                          <td><a href="#">Black Blouse Armani</a></td>
-                          <td>1</td>
-                          <td>$200.00</td>
-                          <td>$0.00</td>
-                          <td>$200.00</td>
-                        </tr>
+                        @endforeach
                       </tbody>
                       <tfoot>
                         <tr>
                           <th colspan="5">Total</th>
-                          <th>$446.00</th>
+                          <th>{!! Cart::total() . ' &#8363' !!}</th>
                         </tr>
                       </tfoot>
                     </table>

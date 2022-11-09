@@ -61,7 +61,7 @@
                   <div class="right">
                     <button type="button" class="btn btn-outline-secondary" onclick="location.reload()"><i class="fa fa-refresh"></i> Update
                       cart</button>
-                    <button type="submit" class="btn btn-primary">Proceed to checkout <i class="fa fa-chevron-right"></i></button>
+                    <a href="{{ url('checkout/address') }}" class="btn btn-primary">Proceed to checkout <i class="fa fa-chevron-right"></i></a>
                   </div>
                 </div>
               </form>
