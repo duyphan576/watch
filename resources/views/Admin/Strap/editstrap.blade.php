@@ -3,7 +3,7 @@
     <div class="bg-light rounded p-4 p-sm-5 my-4 mx-3">
         <div class="d-flex align-items-center justify-content-between mb-3">
             <h3>Edit Strap</h3>
-            <a href="{{ url('admin/role') }}"><button type="button" class="btn btn-outline-primary m-2"><i
+            <a href="{{ url('admin/strap') }}"><button type="button" class="btn btn-outline-primary m-2"><i
                         class="fa fa-home me-2"></i>Back</button></a>
         </div>
         <form method="POST" action="{{ route('editStrap') }}" enctype="multipart/form-data">

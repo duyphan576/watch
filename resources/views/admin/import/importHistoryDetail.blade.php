@@ -19,7 +19,7 @@
                     <tbody>
                         @foreach ($import->importDetail as $detail)
                         <tr>
-                            <th scope="row">#{{ $detail->ImportDetailID }}</th>
+                            <th scope="row">{{ $detail->ImportDetailID }}</th>
                             <td>{{ $detail->product->ProductID }}</td>
                             <td>{{ $detail->product->ProductName }}</td>
                             <td>{{ $detail->Quantity }}</td>

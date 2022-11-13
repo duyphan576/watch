@@ -3,14 +3,14 @@
         <div class="col-12">
             <div class="bg-light rounded h-100 p-4">
                 <div class="d-flex align-items-center justify-content-between mb-3">
-                    <h3>Product</h3>
+                    <h3>Import</h3>
                     <a href="{{ url('admin/import/cart') }}"><button type="button"
                             class="btn btn-success">Cart</button></a>
                 </div>
                 <table class="table table-hover">
                     <thead>
                         <tr>
-                            <th scope="col">#Id</th>
+                            <th scope="col">Id</th>
                             <th scope="col">Product Name</th>
                             <th scope="col">Brand</th>
                             <th scope="col">Strap</th>
@@ -21,7 +21,7 @@
                     <tbody>
                         @foreach ($products as $product)
                         <tr>
-                            <th scope="row">#{{$product->ProductID}}</th>
+                            <th scope="row">{{$product->ProductID}}</th>
                             <td>{{ $product->ProductName }}</td>
                             <td>{{ $product->brand->BrandName}}</td>
                             <td>{{ $product->strap->StrapName}}</td>

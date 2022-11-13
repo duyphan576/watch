@@ -21,7 +21,7 @@
                     <tbody>
                         @foreach ($order->orderDetail as $detail)
                         <tr>
-                            <th scope="row">#{{ $detail->OrderDetailID }}</th>
+                            <th scope="row">{{ $detail->OrderDetailID }}</th>
                             <td>{{ $detail->product->ProductName }}</td>
                             <td>{{ $detail->Quantity }}</td>
                             <td>{!! number_format($detail->Price, 0, '', '.') . ' &#8363' !!}</td>

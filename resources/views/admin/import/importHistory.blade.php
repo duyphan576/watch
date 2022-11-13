@@ -2,7 +2,7 @@
     <div class="container-fluid pt-4 px-4">
         <div class="col-12">
             <div class="bg-light rounded h-100 p-4">
-                <h3>Orders</h3>
+                <h3>Import History</h3>
                 <table class="table table-hover">
                     <thead>
                         <tr>
@@ -16,7 +16,7 @@
                     <tbody>
                         @foreach ($imports as $import)
                             <tr>
-                                <th scope="row"># {{$import->OrderID}}</th>
+                                <th scope="row">{{$import->ImportID}}</th>
                                 <td>{{ $import->staff->Fullname }}</td>
                                 <td>{{ $import->TotalQuantity }}</td>
                                 <td>{{ $import->Date }}</td>
