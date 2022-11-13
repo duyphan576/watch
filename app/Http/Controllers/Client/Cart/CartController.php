@@ -5,10 +5,11 @@ namespace App\Http\Controllers\Client\Cart;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 use Gloudemans\Shoppingcart\Facades\Cart;
+use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
 class CartController extends Controller {
-    public function index() {
+    public function index(Request $request) {
         return view('client.basket');
     }
 
@@ -18,7 +19,7 @@ class CartController extends Controller {
         if(($cartItem && $product->Quantity - $cartItem->qty) < 0){
             return back()->withErrors('Product quantity is not enough');
         }
-        Cart::add($productID, $product->ProductName, 1, $product->Price);
+        Cart::add($productID, $product->ProductName, 1, $product->Price, 0,['image' => $product->Image]);
         return back()->with('success', 'Item added to cart');
     }
 

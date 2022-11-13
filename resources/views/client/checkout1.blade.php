@@ -45,13 +45,15 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="firstname">Fullname</label>
-                        <input id="firstname" name="fullname" type="text" class="form-control" value="{{ $user->Fullname }}">
+                        <input id="firstname" name="fullname" type="text" class="form-control"
+                          value="{{ $user->Fullname }}">
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="address">Address</label>
-                        <input id="address" name="address" type="text" class="form-control" value="{{ $user->Address }}">
+                        <input id="address" name="address" type="text" class="form-control"
+                          value="{{ $user->Address }}">
                       </div>
                     </div>
                   </div>
@@ -90,28 +92,7 @@
               <div class="card-body">
                 <p class="text-muted">Shipping and additional costs are calculated based on the values you have entered.
                 </p>
-                <div class="table-responsive">
-                  <table class="table">
-                    <tbody>
-                      <tr>
-                        <td>Order subtotal</td>
-                        <th>$446.00</th>
-                      </tr>
-                      <tr>
-                        <td>Shipping and handling</td>
-                        <th>$10.00</th>
-                      </tr>
-                      <tr>
-                        <td>Tax</td>
-                        <th>$0.00</th>
-                      </tr>
-                      <tr class="total">
-                        <td>Total</td>
-                        <th>$456.00</th>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
+                @include('components.client.cart.bill')
               </div>
             </div>
           </div>

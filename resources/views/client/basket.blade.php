@@ -40,8 +40,8 @@
                     <tbody>
                       @foreach (Cart::content() as $item)
                       <tr>
-                        <td><a href="#"><img src="User/img/detailsquare.jpg" alt="White Blouse Armani"></a></td>
-                        <td><a href="#">{{ $item->name }}</a></td>
+                        <td><a href=""><img src="{{ asset('assets/image/product/' . $item->options->image) }}" alt="{{ $item->name }}"></a></td>
+                        <td><a href="">{{ $item->name }}</a></td>
                         <td>
                           <input type="number" min=1 rowId="{{ $item->rowId }}" value="{{ $item->qty }}"
                             class="form-control prc">
@@ -63,7 +63,7 @@
                 <!-- /.table-responsive-->
                 <div class="box-footer d-flex justify-content-between flex-column flex-lg-row">
                   <div class="left">
-                    <a href="category" class="btn btn-outline-secondary">
+                    <a href="{{ url('/category') }}" class="btn btn-outline-secondary">
                       <i class="fa fa-chevron-left"></i> Continue shopping
                     </a>
                   </div>
@@ -77,71 +77,6 @@
                 </div>
               </form>
             </div>
-            <!-- /.box-->
-            <div class="row same-height-row">
-              <div class="col-lg-3 col-md-6">
-                <div class="box same-height">
-                  <h3>You may also like these products</h3>
-                </div>
-              </div>
-              <div class="col-md-3 col-sm-6">
-                <div class="product same-height">
-                  <div class="flip-container">
-                    <div class="flipper">
-                      <div class="front"><a href="detail"><img src="User/img/product2.jpg" alt="" class="img-fluid"></a>
-                      </div>
-                      <div class="back"><a href="detail"><img src="User/img/product2_2.jpg" alt=""
-                            class="img-fluid"></a>
-                      </div>
-                    </div>
-                  </div><a href="detail" class="invisible"><img src="User/img/product2.jpg" alt=""
-                      class="img-fluid"></a>
-                  <div class="text">
-                    <h3>Fur coat</h3>
-                    <p class="price">$143</p>
-                  </div>
-                </div>
-                <!-- /.product-->
-              </div>
-              <div class="col-md-3 col-sm-6">
-                <div class="product same-height">
-                  <div class="flip-container">
-                    <div class="flipper">
-                      <div class="front"><a href="detail"><img src="User/img/product1.jpg" alt="" class="img-fluid"></a>
-                      </div>
-                      <div class="back"><a href="detail"><img src="User/img/product1_2.jpg" alt=""
-                            class="img-fluid"></a>
-                      </div>
-                    </div>
-                  </div><a href="detail" class="invisible"><img src="User/img/product1.jpg" alt=""
-                      class="img-fluid"></a>
-                  <div class="text">
-                    <h3>Fur coat</h3>
-                    <p class="price">$143</p>
-                  </div>
-                </div>
-                <!-- /.product-->
-              </div>
-              <div class="col-md-3 col-sm-6">
-                <div class="product same-height">
-                  <div class="flip-container">
-                    <div class="flipper">
-                      <div class="front"><a href="detail"><img src="User/img/product3.jpg" alt="" class="img-fluid"></a>
-                      </div>
-                      <div class="back"><a href="detail"><img src="User/img/product3_2.jpg" alt=""
-                            class="img-fluid"></a>
-                      </div>
-                    </div>
-                  </div><a href="detail" class="invisible"><img src="User/img/product3.jpg" alt=""
-                      class="img-fluid"></a>
-                  <div class="text">
-                    <h3>Fur coat</h3>
-                    <p class="price">$143</p>
-                  </div>
-                </div>
-                <!-- /.product-->
-              </div>
-            </div>
           </div>
           <!-- /.col-lg-9-->
           <div class="col-lg-3">
@@ -151,28 +86,7 @@
               </div>
               <p class="text-muted">Shipping and additional costs are calculated based on the values you have entered.
               </p>
-              <div class="table-responsive">
-                <table class="table">
-                  <tbody>
-                    <tr>
-                      <td>Order subtotal</td>
-                      <th>$446.00</th>
-                    </tr>
-                    <tr>
-                      <td>Shipping and handling</td>
-                      <th>$10.00</th>
-                    </tr>
-                    <tr>
-                      <td>Tax</td>
-                      <th>$0.00</th>
-                    </tr>
-                    <tr class="total">
-                      <td>Total</td>
-                      <th>$456.00</th>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
+              @include('components.client.cart.bill')
             </div>
             <div class="box">
               <div class="box-header">

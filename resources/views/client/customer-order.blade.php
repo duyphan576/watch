@@ -54,7 +54,7 @@
                   <tbody>
                     @foreach ($orderDetails as $orderDetail)
                     <tr>
-                      <td><a href="#"><img src="User/img/detailsquare.jpg" alt="White Blouse Armani"></a></td>
+                      <td><a href="#"><img src="{{ asset('assets/image/product/' . $orderDetail->product->Image) }}" alt="{{ $orderDetail->product->ProductName }}"></a></td>
                       <td><a href="#">{{ $orderDetail->product->ProductName }}</a></td>
                       <td>{{ $orderDetail->Quantity }}</td>
                       <td>{!! number_format($orderDetail->Price, 0, '', '.') . ' &#8363' !!}</td>
