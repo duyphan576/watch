@@ -20,7 +20,7 @@ class Staff extends Authenticatable {
         'Status',
     ];
 
-    protected $hidden = ['password'];
+    protected $hidden = ['Password'];
 
     public function role() {
         return $this->hasOne(Role::class, 'RoleID', 'RoleID');

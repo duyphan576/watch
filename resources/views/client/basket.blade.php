@@ -1,4 +1,13 @@
 <x-client.main.main>
+  @if ($errors->any())
+  <div class="alert alert-danger">
+    <ul>
+      @foreach ($errors->all() as $error)
+      <li>{{ $error }}</li>
+      @endforeach
+    </ul>
+  </div>
+  @endif
   <div id="all">
     <div id="content">
       <div class="container">
@@ -59,9 +68,11 @@
                     </a>
                   </div>
                   <div class="right">
-                    <button type="button" class="btn btn-outline-secondary" onclick="location.reload()"><i class="fa fa-refresh"></i> Update
+                    <button type="button" class="btn btn-outline-secondary" onclick="location.reload()"><i
+                        class="fa fa-refresh"></i> Update
                       cart</button>
-                    <a href="{{ url('checkout/address') }}" class="btn btn-primary">Proceed to checkout <i class="fa fa-chevron-right"></i></a>
+                    <a href="{{ url('checkout/address') }}" class="btn btn-primary">Proceed to checkout <i
+                        class="fa fa-chevron-right"></i></a>
                   </div>
                 </div>
               </form>
@@ -198,7 +209,7 @@
                     location.reload();
                   }
                   else{
-                      alert('failure');
+                      alert(data);
                   }
   
               },

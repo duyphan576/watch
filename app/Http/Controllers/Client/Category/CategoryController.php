@@ -13,6 +13,8 @@ class CategoryController extends Controller {
         $straps = Strap::all();
         $brands = Brand::all();
         $products = Product::query();
+        $products->where('isShow', 1);
+        $products->where('quantity', '>', 0);
         if($strapID) {
             $products->where('StrapID', $strapID);
         } 

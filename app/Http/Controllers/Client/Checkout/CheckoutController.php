@@ -6,8 +6,11 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Order;
 use App\Models\OrderDetail;
+use App\Models\Product;
+use Exception;
+use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\Auth;
-use Cart;
+use Illuminate\Support\Facades\DB;
 
 class CheckoutController extends Controller {
 
@@ -58,25 +61,37 @@ class CheckoutController extends Controller {
     }
 
     public function placeOrder(Request $request) {
-        $order = new Order();
-        $order->UserID = Auth::id();
-        $order->TotalPrice = (float) Cart::total(0 , '', '');
-        $order->Address = session('order.address');
-        $order->Phone = session('order.phone');
-        $order->PaymentMethod = session('order.payment');
-        $order->Status = 1;
+        DB::beginTransaction();
+        try {
+            $order = new Order();
+            $order->UserID = Auth::id();
+            $order->TotalPrice = (float) Cart::total(0, '', '');
+            $order->Address = session('order.address');
+            $order->Phone = session('order.phone');
+            $order->PaymentMethod = session('order.payment');
+            $order->Status = 0;
 
-        $order->save();
+            $order->save();
 
-        foreach (Cart::content() as $item) {
-            $orderDetail = new OrderDetail();
-            $orderDetail->ProductID = $item->id;
-            $orderDetail->Price = $item->price;
-            $orderDetail->Quantity = $item->qty;
-
-            $order->orderDetail()->save($orderDetail);
+            foreach (Cart::content() as $item) {
+                $product = Product::find($item->id);
+                if ($product->Quantity < 0) {
+                    return back()->withErrors('Product quantity is not enough');
+                }
+                $orderDetail = new OrderDetail();
+                $orderDetail->ProductID = $item->id;
+                $orderDetail->Price = $item->price;
+                $orderDetail->Quantity = $item->qty;
+                $order->orderDetail()->save($orderDetail);
+                $product->Quantity = $product->Quantity - $orderDetail->Quantity;
+                $product->save();
+            }
+            DB::commit();
+            Cart::destroy();
+            return redirect('customer/order');
+        } catch (Exception $e) {
+            DB::rollBack();
+            throw new Exception($e->getMessage());
         }
-        Cart::detroy();
-        return redirect('/category');
     }
 }

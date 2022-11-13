@@ -1,4 +1,13 @@
 <x-client.main.main>
+  @if ($errors->any())
+  <div class="alert alert-danger">
+    <ul>
+      @foreach ($errors->all() as $error)
+      <li>{{ $error }}</li>
+      @endforeach
+    </ul>
+  </div>
+  @endif
   <div id="all">
     <div id="content">
       <div class="container">
@@ -24,12 +33,15 @@
               <div class="card-body">
                 <ul class="nav nav-pills flex-column category-menu">
                   <li>
-                    <a href="{{ url('/category') }}" class="nav-link {{ Route::current()->parameter('strapID') == null ? 'active' : '' }}">All</a>
+                    <a href="{{ url('/category') }}"
+                      class="nav-link {{ Route::current()->parameter('strapID') == null ? 'active' : '' }}">All</a>
                   </li>
                   @foreach ($straps as $strapFilter)
                   <li>
-                    <a href="{{ url('/category/' . $strapFilter->StrapID) }}" class="nav-link {{ $strapFilter->StrapID == Route::current()->parameter('strapID') ? 'active' : '' }}">{{ $strapFilter->StrapName }} <span
-                        class="badge badge-secondary">{{ $strapFilter->products()->count() }}</span></a>
+                    <a href="{{ url('/category/' . $strapFilter->StrapID) }}"
+                      class="nav-link {{ $strapFilter->StrapID == Route::current()->parameter('strapID') ? 'active' : '' }}">{{
+                      $strapFilter->StrapName }} <span class="badge badge-secondary">{{
+                        $strapFilter->products()->count() }}</span></a>
                   </li>
                   @endforeach
                 </ul>
@@ -43,13 +55,15 @@
               <div class="card-body">
                 <form action="#" method="GET">
                   @if (Request::input('search'))
-                      <input type="text" name="search" value="{{ Request::input('search') }}" hidden>
+                  <input type="text" name="search" value="{{ Request::input('search') }}" hidden>
                   @endif
                   <div class="form-group">
                     @foreach ($brands as $brand)
                     <div class="checkbox">
                       <label>
-                        <input type="checkbox" name="brand[]" value="{{ $brand->BrandID }}" {{ Request::get('brand') && in_array($brand->BrandID, Request::get('brand')) ? 'checked' : '' }}> {{ $brand->BrandName }} (10)
+                        <input type="checkbox" name="brand[]" value="{{ $brand->BrandID }}" {{ Request::get('brand') &&
+                          in_array($brand->BrandID, Request::get('brand')) ? 'checked' : '' }}> {{ $brand->BrandName }}
+                        (10)
                       </label>
                     </div>
                     @endforeach

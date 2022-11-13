@@ -57,13 +57,15 @@
                       <td>{{ $order->Date }}</td>
                       <td>{!! number_format($order->TotalPrice, 0, '', '.') . ' &#8363' !!}</td>
                       <td>
-                        <span @class([ 
-                          'badge',
+                        <span @class([ 'badge' , 'badge-warning'=> $order->Status == 0,
                           'badge-primary' => $order->Status == 1,
                           'badge-success' => $order->Status == 2,
                           'badge-danger' => $order->Status == 3,
                           ])>
                           @switch($order->Status)
+                          @case(0)
+                          unprepared
+                          @break
                           @case(1)
                           Being prepared
                           @break
@@ -76,7 +78,8 @@
                           @endswitch
                         </span>
                       </td>
-                      <td><a href="{{ url('/customer/order/' . $order->OrderID) }}" class="btn btn-primary btn-sm">View</a></td>
+                      <td><a href="{{ url('/customer/order/' . $order->OrderID) }}"
+                          class="btn btn-primary btn-sm">View</a></td>
                     </tr>
                     @endforeach
                   </tbody>

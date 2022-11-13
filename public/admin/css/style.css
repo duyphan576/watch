@@ -275,3 +275,7 @@
     background: var(--dark);
     border-color: var(--primary);
 }
+
+.table #quantity {
+    width: 48px;
+}

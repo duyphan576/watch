@@ -20,6 +20,7 @@ class RegisterController extends Controller
             'fullname' => ['required', 'string', 'max:255'],
             'birthdate' => ['required', 'date'],
             'phone' => ['required', 'string', 'min:9', 'max:11'],
+            'address' => ['required', 'string'],
         ]);
 
         $user = new User;
@@ -28,8 +29,9 @@ class RegisterController extends Controller
         $user->Fullname = $request->fullname;
         $user->Birthday= $request->birthdate;
         $user->Phone = $request->phone;
+        $user->Address = $request->address;
         $user->save();
 
-        return back()->with('success','File has been uploaded.');
+        return back()->with('success','Account registed successfully');
     }
 }

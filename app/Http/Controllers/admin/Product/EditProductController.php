@@ -29,6 +29,7 @@ class EditProductController extends Controller {
             'brand' => ['required', 'exists:Brand,BrandID'],
             'strap' => ['required', 'exists:Strap,StrapID'],
             'price' => ['required', 'integer'],
+            'isShow' => ['required'],
         ]);
 
         $product = Product::find($request->productID);
@@ -38,6 +39,7 @@ class EditProductController extends Controller {
         $product->ProductName = $request->productName;
         $product->Price = $request->price;
         $product->BrandID = $request->brand;
+        $product->IsShow = $request->isShow;
         
         if($request->hasFile('image')) {
             $file = $request->file('image');

@@ -26,25 +26,32 @@
                 </div>
                 @endif
                 <h1>Checkout - Address</h1>
-                <div class="nav flex-column flex-md-row nav-pills text-center"><a href="checkout1"
-                    class="nav-link flex-sm-fill text-sm-center active"> <i class="fa fa-map-marker"> </i>Address</a><a
-                    href="#" class="nav-link flex-sm-fill text-sm-center disabled"> <i class="fa fa-truck"> </i>Delivery
-                    Method</a><a href="#" class="nav-link flex-sm-fill text-sm-center disabled"> <i class="fa fa-money">
-                    </i>Payment Method</a><a href="#" class="nav-link flex-sm-fill text-sm-center disabled"> <i
-                      class="fa fa-eye"> </i>Order Review</a></div>
+                <div class="nav flex-column flex-md-row nav-pills text-center">
+                  <a href="checkout1" class="nav-link flex-sm-fill text-sm-center active">
+                    <i class="fa fa-map-marker"> </i>Address
+                  </a>
+                  <a href="#" class="nav-link flex-sm-fill text-sm-center disabled">
+                    <i class="fa fa-truck"> </i>Delivery Method
+                  </a>
+                  <a href="#" class="nav-link flex-sm-fill text-sm-center disabled">
+                    <i class="fa fa-money"> </i>Payment Method
+                  </a>
+                  <a href="#" class="nav-link flex-sm-fill text-sm-center disabled">
+                    <i class="fa fa-eye"> </i>Order Review
+                  </a>
+                </div>
                 <div class="content py-3">
                   <div class="row">
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="firstname">Fullname</label>
-                        <input id="firstname" name="fullname" type="text" class="form-control"
-                          value="{{ $user->Fullname }}">
+                        <input id="firstname" name="fullname" type="text" class="form-control" value="{{ $user->Fullname }}">
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="address">Address</label>
-                        <input id="address" name="address" type="text" class="form-control">
+                        <input id="address" name="address" type="text" class="form-control" value="{{ $user->Address }}">
                       </div>
                     </div>
                   </div>

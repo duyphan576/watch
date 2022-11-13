@@ -11,6 +11,9 @@ use App\Http\Controllers\Admin\Staff\EditStaffController;
 use App\Http\Controllers\Admin\Product\AddProductController;
 use App\Http\Controllers\Admin\Product\EditProductController;
 use App\Http\Controllers\Admin\Auth\SigninController;
+use App\Http\Controllers\Admin\Import\ImportController;
+use App\Http\Controllers\Admin\Import\ImportHistoryController;
+use App\Http\Controllers\Admin\Order\AdminOrderController;
 use App\Http\Controllers\Admin\Role\RoleController;
 use App\Http\Controllers\Admin\Role\AddRoleController;
 use App\Http\Controllers\Admin\Role\EditRoleController;
@@ -113,5 +116,19 @@ Route::middleware('auth.admin:admin')->group(function () {
         Route::post('/staff/add', [AddStaffController::class, 'store']);
         Route::get('/staff/edit/{staffID}', [EditStaffController::class, 'index']);
         Route::post('/staff/edit', [AddStaffController::class, 'accountstaff'])->name('editStaff');
+
+        Route::get('/order', [AdminOrderController::class, 'index']);
+        Route::get('/order/{OrderID}', [AdminOrderController::class, 'orderDetail']);
+        Route::post('/order', [AdminOrderController::class, 'updateStatus']);
+
+        Route::get('/import', [ImportController::class, 'index']);
+        Route::get('/import/cart', [ImportController::class, 'cart']);
+        Route::post('/import/cart/add', [ImportController::class, 'add']);
+        Route::post('/import/cart/remove', [ImportController::class, 'remove']);
+        Route::post('/import/cart/update', [ImportController::class, 'update']);
+        Route::get('/import/cart/place-order', [ImportController::class, 'placeOrder']);
+
+        Route::get('/import-history', [ImportHistoryController::class, 'index']);
+        Route::get('/import-history/{importID}', [ImportHistoryController::class, 'importDetail']);
     });
 });

@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Client\Cart;
 
 use App\Http\Controllers\Controller;
 use App\Models\Product;
-use Cart;
+use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Response;
 
 class CartController extends Controller {
@@ -14,16 +14,25 @@ class CartController extends Controller {
 
     public function add($productID) {
         $product = Product::find($productID);
+        $cartItem = Cart::content()->where('id', $productID)->first();
+        if(($cartItem && $product->Quantity - $cartItem->qty) < 0){
+            return back()->withErrors('Product quantity is not enough');
+        }
         Cart::add($productID, $product->ProductName, 1, $product->Price);
-        return redirect()->back();
+        return back()->with('success', 'Item added to cart');
     }
 
     public function remove($productID) {
         Cart::remove($productID);
-        return redirect()->back();
+        return back();
     }
 
     public function update($rowId, $quantity) {
+        $cartItem = Cart::get($rowId);
+        $product = Product::find($cartItem->id);
+        if(($product->Quantity - $quantity) < 0){
+            return response()->json('Product quantity is not enough');
+        }
         Cart::update($rowId, $quantity);
         return response()->json('success');
     }

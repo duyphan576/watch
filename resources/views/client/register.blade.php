@@ -62,6 +62,13 @@
                   @enderror
                   <input id="phone" type="number" name="phone" class="form-control">
                 </div>
+                <div class="form-group">
+                  <label for="phone">Address</label>
+                  @error('address')
+                  <div class="alert alert-danger">{{ $message }}</div>
+                  @enderror
+                  <input id="address" type="text" name="address" class="form-control">
+                </div>
                 <div class="text-center">
                   <button type="submit" class="btn btn-primary"><i class="fa fa-user-md"></i> Register</button>
                 </div>
@@ -90,7 +97,7 @@
                   @error('password')
                   <div class="alert alert-danger">{{ $message }}</div>
                   @enderror
-                  <input id="password" type="password" class="form-control">
+                  <input id="password" type="password" name="password" class="form-control">
                 </div>
                 <div class="text-center">
                   <button type="submit" class="btn btn-primary"><i class="fa fa-sign-in"></i> Log in</button>

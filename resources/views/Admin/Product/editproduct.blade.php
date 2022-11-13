@@ -1,5 +1,14 @@
 <x-admin.main.main>
     <!-- Form Start -->
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
     <div class="bg-light rounded p-4 p-sm-5 my-4 mx-3">
         <div class="d-flex align-items-center justify-content-between mb-3">
             <h3><a href="{{ url('admin/product') }}"><button type="button" class="btn btn-outline-primary m-2"><i
@@ -21,8 +30,8 @@
                     name="brand">
                     <option selected>Open this select menu brand</option>
                     @foreach ($brands as $brand)
-                        <option value="{{$brand->BrandID}}" {{$brand->BrandID == $product->BrandID ? 'selected' :
-                            ''}}>{{$brand->BrandName}}</option>
+                    <option value="{{$brand->BrandID}}" {{$brand->BrandID == $product->BrandID ? 'selected' :
+                        ''}}>{{$brand->BrandName}}</option>
                     @endforeach
                 </select>
                 <label for="floatingSelect">Brand</label>
@@ -32,8 +41,8 @@
                     name="strap">
                     <option selected>Open this select menu Strap</option>
                     @foreach ($straps as $strap)
-                        <option value="{{$strap->StrapID}}" {{$strap->StrapID == $product->StrapID ? 'selected' :
-                            ''}}>{{$strap->StrapName}}</option>
+                    <option value="{{$strap->StrapID}}" {{$strap->StrapID == $product->StrapID ? 'selected' :
+                        ''}}>{{$strap->StrapName}}</option>
                     @endforeach
                 </select>
                 <label for="floatingSelect">Strap</label>
@@ -50,8 +59,16 @@
                 <div class="form-floating">
                     <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"
                         style="height: 150px;"></textarea>
-                    <label for="floatingTextarea">Contents</label>
+                    <label for="floatingTextarea">{!! nl2br($product->Description) !!}</label>
                 </div>
+            </div>
+            <div class="form-floating mb-4">
+                <select class="form-select" id="floatingSelect" aria-label="Floating label select example" id="strap"
+                    name="isShow">
+                    <option value="1" {{ $product->IsShow == 1 ? 'selected' : ''}}>Show</option>
+                    <option value="0" {{ $product->IsShow == 0 ? 'selected' : ''}}>Hide</option>
+                </select>
+                <label for="floatingSelect">Status</label>
             </div>
             <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Edit</button>
         </form>
