@@ -1,15 +1,29 @@
 <x-admin.main.main>
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
+    @if (session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+    @endif
     <div class="container-fluid pt-4 px-4">
         <div class="col-12">
             <div class="bg-light rounded h-100 p-4">
                 <div class="d-flex align-items-center justify-content-between mb-3">
                 <h3>Brand</h3>
-                <a href="addbrand"><button type="button" class="btn btn-success">Add</button></a>
+                <a href="{{ url('admin/brand/add') }}"><button type="button" class="btn btn-success">Add</button></a>
                 </div>
                 <table class="table table-hover">
                     <thead>
                         <tr>
-                            <th scope="col">#</th>
+                            <th scope="col">#Id</th>
                             <th scope="col">Brand Name</th>
                             <th scope="col">Logo</th>
                             <th scope="col">Phone</th>
@@ -17,11 +31,9 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @php($counter = 1)
                         @foreach ($brands as $brand)
                         <x-admin.brand.brand-table-row>
                             <x-slot:id>{{$brand->BrandID}}</x-slot:id>
-                            <x-slot:counter>{{$counter++}}</x-slot:counter>
                             <x-slot:name>{{$brand->BrandName}}</x-slot:name>
                         </x-admin.brand.brand-table-row>
                         @endforeach

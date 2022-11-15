@@ -11,6 +11,8 @@ use App\Http\Controllers\Admin\Staff\EditStaffController;
 use App\Http\Controllers\Admin\Product\AddProductController;
 use App\Http\Controllers\Admin\Product\EditProductController;
 use App\Http\Controllers\Admin\Auth\SigninController;
+use App\Http\Controllers\Admin\Brand\AddBrandController;
+use App\Http\Controllers\Admin\Brand\EditBrandController;
 use App\Http\Controllers\Admin\Import\ImportController;
 use App\Http\Controllers\Admin\Import\ImportHistoryController;
 use App\Http\Controllers\Admin\Order\AdminOrderController;
@@ -20,6 +22,7 @@ use App\Http\Controllers\Admin\Role\EditRoleController;
 use App\Http\Controllers\Admin\Strap\StrapController;
 use App\Http\Controllers\Admin\Strap\AddStrapController;
 use App\Http\Controllers\Admin\Strap\EditStrapController;
+use App\Http\Controllers\Admin\User\UserController;
 use App\Http\Controllers\Client\Auth\LoginController;
 use App\Http\Controllers\Client\Auth\RegisterController;
 use App\Http\Controllers\Client\Cart\CartController;
@@ -84,11 +87,11 @@ Route::middleware('auth.admin:admin')->group(function () {
     Route::prefix('admin')->group(function () {
 
         Route::get('/brand', [BrandController::class, 'index']);
-        Route::get('/brand/add', [AddStrapController::class, 'index'])->name('addBrand');
-        Route::post('/brand/add', [AddStrapController::class, 'store']);
-        Route::get('/brand/edit/{brandID}', [EditStrapController::class, 'index']);
-        Route::post('/brand/edit/', [EditStrapController::class, 'update'])->name('editBrand');
-        Route::post('/brand/delete', [StrapController::class, 'delete'])->name('deleteBrand');
+        Route::get('/brand/add', [AddBrandController::class, 'index'])->name('addBrand');
+        Route::post('/brand/add', [AddBrandController::class, 'store']);
+        Route::get('/brand/edit/{brandID}', [EditBrandController::class, 'index']);
+        Route::post('/brand/edit/', [EditBrandController::class, 'update'])->name('editBrand');
+        Route::post('/brand/delete', [BrandController::class, 'delete'])->name('deleteBrand');
 
         Route::get('/strap', [StrapController::class, 'index']);
         Route::get('/strap/add', [AddStrapController::class, 'index'])->name('addStrap');
@@ -130,5 +133,8 @@ Route::middleware('auth.admin:admin')->group(function () {
 
         Route::get('/import-history', [ImportHistoryController::class, 'index']);
         Route::get('/import-history/{importID}', [ImportHistoryController::class, 'importDetail']);
+
+        Route::get('/user', [UserController::class, 'index']);
+        Route::post('/user/update', [UserController::class, 'updateStatus']);
     });
 });

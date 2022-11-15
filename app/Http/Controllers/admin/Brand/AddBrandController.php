@@ -23,7 +23,7 @@ class AddBrandController extends Controller {
 
         $brand->save();
 
-        return back()->with('success','File has been uploaded.');
+        return redirect('admin/product')->with('success','Brand has been added');
     }
 
 }

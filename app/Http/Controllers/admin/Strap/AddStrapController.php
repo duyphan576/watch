@@ -26,6 +26,6 @@ class AddStrapController extends Controller
 
         $strap->save();
 
-        return back()->with('success', 'File has been uploaded.');
+        return redirect('admin/strap')->with('success', 'Strap has been added.');
     }
 }

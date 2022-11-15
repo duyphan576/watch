@@ -1,5 +1,5 @@
 <tr>
-    <th scope="row">{{$counter}}</th>
+    <th scope="row"># {{$id}}</th>
     <td>{{$name}}</td>
     <td>{{$brand}}</td>
     <td>{{$strap}}</td>

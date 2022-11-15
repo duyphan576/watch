@@ -26,6 +26,6 @@ class EditStrapController extends Controller {
         
         $strap->save();
 
-        return back()->with('success','File has been uploaded.');
+        return back()->with('success','Strap has been updated.');
     }
 }
