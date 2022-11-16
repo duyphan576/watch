@@ -16,7 +16,7 @@
     <!-- Form Start -->
     <div class="bg-light rounded p-4 p-sm-5 my-4 mx-3">
         <div class="d-flex align-items-center justify-content-between mb-3">
-            <h3><a href="{{ url('admin/proudct') }}"><button type="button" class="btn btn-outline-primary m-2"><i
+            <h3><a href="{{ url('admin/brand') }}"><button type="button" class="btn btn-outline-primary m-2"><i
                             class="fa fa-home me-2"></i>Back</button></a></h3>
         </div>
         <div class="d-flex align-items-center justify-content-between mb-3">

@@ -9,14 +9,16 @@
                 <table class="table table-hover">
                     <thead>
                         <tr>
-                            <th scope="col"># Id</th>
+                            
                             <th scope="col">Strap Name</th>
                             <th scope="col">Button</th>
                         </tr>
                     </thead>
                     <tbody>
+                        
                         @foreach ($strap as $strap)
                             <x-admin.strap.strap-table-row>
+                                
                                 <x-slot:name>{{ $strap->StrapName }}</x-slot:name>
                                 <x-slot:id>{{ $strap->StrapID }}</x-slot:id>
                             </x-admin.strap.strap-table-row>
