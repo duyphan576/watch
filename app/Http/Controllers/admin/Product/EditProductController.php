@@ -50,6 +50,6 @@ class EditProductController extends Controller {
         }
         $product->save();
 
-        return back()->with('success','File has been uploaded.');
+        return redirect('admin/product')->with('success','Product has been edited');
     }
 }

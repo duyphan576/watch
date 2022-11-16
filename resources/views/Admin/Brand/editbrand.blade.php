@@ -24,7 +24,7 @@
         </div>
         <form action="{{ route('editBrand') }}" method="post">
             @csrf
-            <input type="text" name="BrandID" value="{{ $brand->BrandID }}" hidden>
+            <input type="text" name="brandID" value="{{ $brand->BrandID }}" hidden>
             <div class="form-floating mb-4">
                 <input type="text" class="form-control" id="brandName" name="brandName" value="{{ $brand->BrandName }}">
                 <label for="floatingText">Brand Name</label>

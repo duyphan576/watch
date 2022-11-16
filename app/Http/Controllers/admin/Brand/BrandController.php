@@ -17,5 +17,6 @@ class BrandController extends Controller {
     public function delete(Request $request) {
         $brand = Brand::find($request->brandID);
         $brand->delete();
+        return back()->with('success', 'Item has been deleted');
     }
 }

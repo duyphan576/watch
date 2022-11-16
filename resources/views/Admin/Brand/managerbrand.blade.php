@@ -56,7 +56,7 @@
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     <form method="POST" action="{{ route('deleteBrand') }}">
                         @csrf
-                        <input type="text" id="idToDel" name="productID" hidden>
+                        <input type="text" id="idToDel" name="brandID" hidden>
                         <button type="submit" class="btn btn-danger">Delete</button>
                     </form>
                 </div>
