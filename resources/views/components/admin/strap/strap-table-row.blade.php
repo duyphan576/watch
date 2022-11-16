@@ -1,5 +1,5 @@
 <tr>
-    <th scope="row">{{ $counter }}</th>
+    
     <td>{{ $name }}</td>
     <td>
         <div class="btn-group" role="group">
