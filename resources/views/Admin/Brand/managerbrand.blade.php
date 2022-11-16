@@ -25,8 +25,6 @@
                         <tr>
                             <th scope="col">#Id</th>
                             <th scope="col">Brand Name</th>
-                            <th scope="col">Logo</th>
-                            <th scope="col">Phone</th>
                             <th scope="col">Button</th>
                         </tr>
                     </thead>
