@@ -127,7 +127,7 @@
     <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
 
     <!-- Template Javascript -->
-    <script src="{{ asset('admin/js/main.js')}}"></script>
+    <script src="{{ asset('assets/admin/js/main.js')}}"></script>
 </body>
 
 </html>
