@@ -67,9 +67,9 @@
 
     </div>
     <nav class="navbar navbar-expand-lg">
-        <div class="container"><a href="index" class="navbar-brand home"><img src="{{ asset('client/img/logo.png') }}"
+        <div class="container"><a href="index" class="navbar-brand home"><img src="{{ asset('assets/client/img/logo.png') }}"
                     alt="Obaju logo" class="d-none d-md-inline-block"><img
-                    src="{{ asset('client/img/logo-small.png') }}" alt="Obaju logo"
+                    src="{{ asset('assets/client/img/logo-small.png') }}" alt="Obaju logo"
                     class="d-inline-block d-md-none"><span class="sr-only">Obaju - go to
                     homepage</span></a>
             <div class="navbar-buttons">

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Client\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
@@ -32,6 +33,7 @@ class RegisterController extends Controller
         $user->Address = $request->address;
         $user->save();
 
+        // Auth::login()
         return back()->with('success','Account registed successfully');
     }
 }

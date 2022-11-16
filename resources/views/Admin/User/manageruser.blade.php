@@ -41,15 +41,13 @@
                                 <td>{{ $user->Birthday }}</td>
                                 <td>{{ $user->Phone }}</td>
                                 <td>
-                                    <select class="form-select" aria-label="Floating label select example"
-                                        id="status" name="status">
+                                    <select class="form-select" aria-label="Floating label select example" id="status" name="status">
                                         <option value="1" {{ $user->Status == 1 ? 'selected' : '' }}>Open</option>
                                         <option value="0" {{ $user->Status == 0 ? 'selected' : '' }}>Lock</option>
                                     </select>
                                 </td>
                                 <td>
                                     <div class="btn-group" role="group">
-                                        <a href=""><button type="button" class="btn btn-success">Password</button></a>
                                         <button type="submit" class="btn btn-warning">Status</button>
                                     </div>
                                 </td>

@@ -1,5 +1,4 @@
 <x-admin.main.main>
-    <!-- Form Start -->
     @if ($errors->any())
     <div class="alert alert-danger">
         <ul>
@@ -9,6 +8,12 @@
         </ul>
     </div>
     @endif
+    @if (session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+    @endif
+    <!-- Form Start -->
     <div class="bg-light rounded p-4 p-sm-5 my-4 mx-3">
         <div class="d-flex align-items-center justify-content-between mb-3">
             <h3><a href="{{ url('admin/product') }}"><button type="button" class="btn btn-outline-primary m-2"><i

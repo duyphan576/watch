@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller {
     public function store(Request $request) {
-        // dd($request);
         $credentials = $request->validate([
             'username' => ['required', 'string'],
             'password' => ['required'],
@@ -16,7 +15,7 @@ class LoginController extends Controller {
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect('/category/5');
+            return redirect('/');
         }
         return back()->withErrors([
             'username' => 'The provided credentials do not match our records.',
@@ -30,6 +29,6 @@ class LoginController extends Controller {
 
         $request->session()->regenerateToken();
 
-        return redirect('/category');
+        return redirect('/');
     }
 }

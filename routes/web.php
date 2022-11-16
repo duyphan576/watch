@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\Product\EditProductController;
 use App\Http\Controllers\Admin\Auth\SigninController;
 use App\Http\Controllers\Admin\Brand\AddBrandController;
 use App\Http\Controllers\Admin\Brand\EditBrandController;
+use App\Http\Controllers\Admin\Dashboard\DashboardController;
 use App\Http\Controllers\Admin\Import\ImportController;
 use App\Http\Controllers\Admin\Import\ImportHistoryController;
 use App\Http\Controllers\Admin\Order\AdminOrderController;
@@ -29,6 +30,7 @@ use App\Http\Controllers\Client\Cart\CartController;
 use App\Http\Controllers\Client\Checkout\CheckoutController;
 use App\Http\Controllers\Client\Customer\AccountController;
 use App\Http\Controllers\Client\Customer\OrderController;
+use App\Models\Role;
 
 /*
   |--------------------------------------------------------------------------
@@ -84,7 +86,10 @@ Route::post('/admin/signin', [SigninController::class, 'store']);
 Route::post('/admin/logout', [SigninController::class, 'destroy'])->name('adminLogout');
 
 Route::middleware('auth.admin:admin')->group(function () {
+    
     Route::prefix('admin')->group(function () {
+        
+        Route::get('/', [DashboardController::class, 'index']);
 
         Route::get('/brand', [BrandController::class, 'index']);
         Route::get('/brand/add', [AddBrandController::class, 'index'])->name('addBrand');
