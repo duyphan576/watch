@@ -23,7 +23,6 @@ class SigninController extends Controller {
      * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Request $request) {
-        // dd($request);
         $credentials = $request->validate([
             'username' => ['required', 'string'],
             'password' => ['required'],
@@ -31,7 +30,7 @@ class SigninController extends Controller {
 
         if (Auth::guard('admin')->attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect('/admin/product');
+            return redirect('/admin');
         }
         return back()->withErrors([
             'username' => 'The provided credentials do not match our records.',

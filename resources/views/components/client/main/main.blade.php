@@ -34,12 +34,12 @@
     {{ $slot }}
     @include('components.client.main.footer');
     <!-- JavaScript files-->
-    <script src="{{ asset('assetsassets/client/vendor/jquery/jquery.min.js') }}"></script>
-    <script src="{{ asset('assetsassets/client/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('assetsassets/client/vendor/jquery.cookie/jquery.cookie.js') }}"></script>
-    <script src="{{ asset('assetsassets/client/vendor/owl.carousel/owl.carousel.min.js') }}"></script>
-    <script src="{{ asset('assetsassets/client/vendor/owl.carousel2.thumbs/owl.carousel2.thumbs.js') }}"></script>
-    <script src="{{ asset('assetsassets/client/js/front.js') }}"></script>
+    <script src="{{ asset('assets/client/vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('assets/client/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('assets/client/vendor/jquery.cookie/jquery.cookie.js') }}"></script>
+    <script src="{{ asset('assets/client/vendor/owl.carousel/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('assets/client/vendor/owl.carousel2.thumbs/owl.carousel2.thumbs.js') }}"></script>
+    <script src="{{ asset('assets/client/js/front.js') }}"></script>
     @isset($script)
         {{$script}}
     @endisset

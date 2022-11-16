@@ -17,18 +17,7 @@
               *** CUSTOMER MENU ***
               _________________________________________________________
               -->
-            <div class="card sidebar-menu">
-              <div class="card-header">
-                <h3 class="h4 card-title">Customer section</h3>
-              </div>
-              <div class="card-body">
-                <ul class="nav nav-pills flex-column"><a href="customer-orders" class="nav-link active"><i
-                      class="fa fa-list"></i> My orders</a><a href="customer-wishlist" class="nav-link"><i
-                      class="fa fa-heart"></i> My wishlist</a><a href="customer-account" class="nav-link"><i
-                      class="fa fa-user"></i> My account</a><a href="index" class="nav-link"><i
-                      class="fa fa-sign-out"></i> Logout</a></ul>
-              </div>
-            </div>
+            @include('components/client/customer/customerMenu')
             <!-- /.col-lg-3-->
             <!-- *** CUSTOMER MENU END ***-->
           </div>
@@ -73,7 +62,8 @@
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="new_password_confirmation">Retype new password</label>
-                      <input id="new_password_confirmation" name="new_password_confirmation" type="password" class="form-control">
+                      <input id="new_password_confirmation" name="new_password_confirmation" type="password"
+                        class="form-control">
                     </div>
                   </div>
                 </div>
@@ -89,13 +79,15 @@
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="fulltname">Fullname</label>
-                      <input id="fulltname" name="fullname" type="text" value="{{ Auth::user()->Fullname }}" class="form-control">
+                      <input id="fulltname" name="fullname" type="text" value="{{ Auth::user()->Fullname }}"
+                        class="form-control">
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="birtday">Birthday</label>
-                      <input id="birthday" name="birthday" type="date" value="{{ Auth::user()->Birthday }}" class="form-control">
+                      <input id="birthday" name="birthday" type="date" value="{{ Auth::user()->Birthday }}"
+                        class="form-control">
                     </div>
                   </div>
                 </div>

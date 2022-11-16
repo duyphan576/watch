@@ -25,4 +25,8 @@ class User extends Authenticatable {
     public function getAuthPassword() {
         return $this->Password;
     }
+
+    public function getStatus() {
+        return $this->Status;
+    }
 }

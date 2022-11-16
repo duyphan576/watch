@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Client\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -12,13 +13,19 @@ class LoginController extends Controller {
             'username' => ['required', 'string'],
             'password' => ['required'],
         ]);
-
-        if (Auth::attempt($credentials)) {
+        $errorMess = 'The provided credentials do not match our records.';
+        if (Auth::attemptWhen($credentials, function ($user) use (&$errorMess) {
+            if ($user->getStatus()) {
+                return true;
+            }
+            $errorMess = 'The user account is blocked.';
+            return false;
+        })) {
             $request->session()->regenerate();
             return redirect('/');
         }
         return back()->withErrors([
-            'username' => 'The provided credentials do not match our records.',
+            'username' => $errorMess,
         ])->onlyInput('username');
     }
 
