@@ -26,6 +26,6 @@ class EditRoleController extends Controller {
         
         $role->save();
 
-        return back()->with('success','File has been uploaded.');
+        return redirect('admin/role')->with('success','Role has been edited');
     }
 }

@@ -23,7 +23,7 @@ class AddBrandController extends Controller {
 
         $brand->save();
 
-        return redirect('admin/product')->with('success','Brand has been added');
+        return redirect('admin/brand')->with('success','Brand has been added');
     }
 
 }

@@ -26,6 +26,6 @@ class EditStrapController extends Controller {
         
         $strap->save();
 
-        return back()->with('success','Strap has been updated.');
+        return redirect('admin/strap')->with('success','Strap has been edited');
     }
 }

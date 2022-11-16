@@ -36,6 +36,6 @@ class EditStaffController extends Controller {
         $staff->Status = $request->status;
         $staff->save();
 
-        return back()->with('success','File has been uploaded.');
+        return redirect('admin/staff')->with('success','Staff has been edited');
     }
 }

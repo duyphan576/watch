@@ -18,7 +18,7 @@
             <div class="bg-light rounded h-100 p-4">
                 <div class="d-flex align-items-center justify-content-between mb-3">
                 <h3>Product</h3>
-                <a href="addproduct"><button type="button" class="btn btn-success">Add</button></a>
+                <a href="{{ url('admin/product/add') }}"><button type="button" class="btn btn-success">Add</button></a>
                 </div>
                 <table class="table table-hover">
                     <thead>
