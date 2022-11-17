@@ -15,6 +15,9 @@ use Illuminate\Support\Facades\DB;
 class CheckoutController extends Controller {
 
     public function address() {
+        if(Cart::content()) {
+            return back()->withErrors('Cart is empty');
+        }
         $user = Auth::user();
         return view('client.checkout1', [
             'user' => $user,

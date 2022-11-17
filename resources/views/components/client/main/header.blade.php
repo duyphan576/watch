@@ -8,7 +8,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 offer mb-3 mb-lg-0"><a href="#" class="btn btn-success btn-sm">Offer of the
-                        day</a><a href="#" class="ml-1">Get flat 35% off on orders over $50!</a></div>
+                        day</a></div>
                 <div class="col-lg-6 text-center text-lg-right">
                     @if (Auth::check())
                     <a href="{{ url('customer/order') }}" class="mr-4 text-white">{{ Auth::user()->Fullname }}</a>
@@ -18,8 +18,6 @@
                         <li class="list-inline-item"><a href="#" data-toggle="modal"
                                 data-target="#login-modal">Login</a></li>
                         <li class="list-inline-item"><a href="register">Register</a></li>
-                        <li class="list-inline-item"><a href="contact">Contact</a></li>
-                        <li class="list-inline-item"><a href="#">Recently viewed</a></li>
                     </ul>
                     @endif
                 </div>
@@ -67,11 +65,12 @@
 
     </div>
     <nav class="navbar navbar-expand-lg">
-        <div class="container"><a href="index" class="navbar-brand home"><img src="{{ asset('assets/client/img/logo.png') }}"
-                    alt="Obaju logo" class="d-none d-md-inline-block"><img
-                    src="{{ asset('assets/client/img/logo-small.png') }}" alt="Obaju logo"
-                    class="d-inline-block d-md-none"><span class="sr-only">Obaju - go to
-                    homepage</span></a>
+        <div class="container">
+            <a href="{{ url('/') }}" class="navbar-brand home">
+                <img src="{{ asset('assets/client/img/logo.png') }}" alt="Obaju logo" class="d-none d-md-inline-block">
+                <img src="{{ asset('assets/client/img/logo-small.png') }}" alt="Obaju logo" class="d-inline-block d-md-none">
+                <span class="sr-only">Obaju - go to homepage</span>
+            </a>
             <div class="navbar-buttons">
                 <button type="button" data-toggle="collapse" data-target="#navigation"
                     class="btn btn-outline-secondary navbar-toggler"><span class="sr-only">Toggle navigation</span><i
@@ -90,19 +89,22 @@
                             class="dropdown-toggle nav-link">Strap type<b class="caret"></b></span>
                         <div class="dropdown-menu">
                             @foreach (App\Models\Strap::all() as $strap)
-                            <a class="dropdown-item" href="{{ url('/category/' . $strap->StrapID) }}">{{ $strap->StrapName }}</a>
+                            <a class="dropdown-item" href="{{ url('/category/' . $strap->StrapID) }}">{{
+                                $strap->StrapName }}</a>
                             @endforeach
                         </div>
-                    </li><li class="nav-item dropdown">
+                    </li>
+                    <li class="nav-item dropdown">
                         <span href="#" data-toggle="dropdown" data-hover="dropdown" data-delay="200"
                             class="dropdown-toggle nav-link">Brand<b class="caret"></b></span>
                         <div class="dropdown-menu">
                             @foreach (App\Models\Brand::all() as $brand)
-                            <a class="dropdown-item" href="{{ url('/category?brand%5B%5D=' . $brand->BrandID) }}">{{ $brand->BrandName }}</a>
+                            <a class="dropdown-item" href="{{ url('/category?brand%5B%5D=' . $brand->BrandID) }}">{{
+                                $brand->BrandName }}</a>
                             @endforeach
                         </div>
                     </li>
-                    
+
                 </ul>
                 <div class="navbar-buttons d-flex justify-content-end">
                     <!-- /.nav-collapse-->

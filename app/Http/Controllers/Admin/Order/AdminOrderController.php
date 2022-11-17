@@ -7,8 +7,16 @@ use App\Models\Order;
 use Illuminate\Http\Request;
 
 class AdminOrderController extends Controller {
-    public function index() {
-        $orders = Order::all();
+    public function index(Request $request) {
+        $orders = Order::query();
+        if($request->has('fromDate') && $request->fromDate != '') {
+            $orders->where('Date', '>=', $request->fromDate);
+        }
+        if($request->has('toDate')  && $request->toDate != '') {
+            $orders->where('Date', '<=', $request->toDate);
+        }
+        // dd($orders->toSql());
+        $orders = $orders->get();
         return view('admin.order.managerorder', [
             'orders' => $orders,
         ]);

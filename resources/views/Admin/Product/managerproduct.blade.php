@@ -17,9 +17,11 @@
         <div class="col-12">
             <div class="bg-light rounded h-100 p-4">
                 <div class="d-flex align-items-center justify-content-between mb-3">
-                <h3>Product</h3>
-                <a href="{{ url('admin/product/add') }}"><button type="button" class="btn btn-success">Add</button></a>
+                    <h3>Product</h3>
+                    <a href="{{ url('admin/product/add') }}"><button type="button"
+                            class="btn btn-success">Add</button></a>
                 </div>
+                <input class="form-control" id="myInput" type="text" placeholder="Search..">
                 <table class="table table-hover">
                     <thead>
                         <tr>
@@ -28,12 +30,10 @@
                             <th scope="col">Brand</th>
                             <th scope="col">Strap</th>
                             <th scope="col">Price</th>
-                            <th scope="col">Image</th>
-                            <th scope="col">Description</th>
                             <th scope="col">Button</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="myTable">
                         @php($counter = 1)
                         @foreach ($products as $product)
                         <x-admin.product.product-table-row>
@@ -42,7 +42,6 @@
                             <x-slot:brand>{{$product->brand->BrandName}}</x-slot:brand>
                             <x-slot:strap>{{$product->strap->StrapName}}</x-slot:strap>
                             <x-slot:price>{{$product->Price}}</x-slot:price>
-                            <x-slot:description>{{'Hello'}}</x-slot:description>
                             <x-slot:id>{{$product->ProductID}}</x-slot:id>
                         </x-admin.product.product-table-row>
                         @endforeach
@@ -74,4 +73,16 @@
             </div>
         </div>
     </div>
+    <x-slot:script>
+        <script>
+            $(document).ready(function(){
+              $("#myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function() {
+                  $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+              });
+            });
+        </script>
+    </x-slot:script>
 </x-admin.main.main>

@@ -17,6 +17,17 @@
         <div class="col-12">
             <div class="bg-light rounded h-100 p-4">
                 <h3>Orders</h3>
+                <form action="" method="GET">
+                    <div class="form-group">
+                        <label for="fromDate">From date</label>
+                        <input type="date" class="form-control" id="fromDate" name="fromDate">
+                    </div>
+                    <div class="form-group">
+                        <label for="toDate">To date</label>
+                        <input type="date" class="form-control"  id="toDate" name="toDate">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Filter</button>
+                </form>
                 <table class="table table-hover">
                     <thead>
                         <tr>
