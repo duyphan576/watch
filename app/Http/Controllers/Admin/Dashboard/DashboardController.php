@@ -18,11 +18,16 @@ class DashboardController extends Controller {
         $bestSeller = OrderDetail::select('ProductID')->groupBy('ProductID')->orderBy(DB::raw('COUNT(ProductID)'), 'desc')->limit(1)->first();
         $vipCustomer = Order::select('UserID')->groupBy('UserID')->orderBy(DB::raw('COUNT(UserID)'), 'desc')->limit(1)->first();
         $vipCustomer = User::find($vipCustomer->UserID);
+        $revenueFilter = null;
+        if($request->has('month')) {
+            $revenueFilter = Order::select('Date', DB::raw('COUNT(OrderID) as totalOrder, SUM(TotalPrice) as totalPrice'))->where(DB::raw('YEAR(Date)'), date('Y', strtotime($request->month)))->where(DB::raw('MONTH(Date)'), date('m', strtotime($request->month)))->groupBy('Date')->orderBy('Date', 'desc')->get();
+        }
         return view('admin.dashboard.dashboard', [
             'dayRevenue' => $dayRevenue,
             'monthRevenue' => $monthRevenue,
             'bestSeller' => $bestSeller,
             'vipCustomer' => $vipCustomer,
+            'revenueFilter'=> $revenueFilter,
         ]);
     }
 }

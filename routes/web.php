@@ -30,7 +30,7 @@ use App\Http\Controllers\Client\Cart\CartController;
 use App\Http\Controllers\Client\Checkout\CheckoutController;
 use App\Http\Controllers\Client\Customer\AccountController;
 use App\Http\Controllers\Client\Customer\OrderController;
-use App\Models\Role;
+use App\Http\Controllers\Client\Home\HomeController;
 
 /*
   |--------------------------------------------------------------------------
@@ -43,9 +43,7 @@ use App\Models\Role;
   |
  */
 
-Route::get('/', function () {
-    return view('client.index');
-});
+Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/category/{strapID?}', [CategoryController::class, 'index']);
 Route::get('/category/detail/{productID}', [DetailController::class, 'index']);

@@ -2,20 +2,6 @@
   <div id="all">
     <div id="content">
       <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <!-- breadcrumb-->
-            <nav aria-label="breadcrumb">
-              <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item"><a href="#">Ladies</a></li>
-                <li class="breadcrumb-item"><a href="#">Tops</a></li>
-                <li aria-current="page" class="breadcrumb-item active">White Blouse Armani</li>
-              </ol>
-            </nav>
-          </div>
-          <div class="banner"><a href="#"><img src="User/img/banner.jpg" alt="sales 2014" class="img-fluid"></a></div>
-        </div>
         <div class="col-lg-12 order-1 order-lg-2">
           <div id="productMain" class="row">
             <div class="col-md-6">
@@ -59,30 +45,7 @@
             </div>
           </div>
           <div id="details" class="box">
-            <p></p>
-            <h4>Product details</h4>
-            <p>White lace top, woven, has a round neck, short sleeves, has knitted lining attached</p>
-            <h4>Material &amp; care</h4>
-            <ul>
-              <li>Polyester</li>
-              <li>Machine wash</li>
-            </ul>
-            <h4>Size &amp; Fit</h4>
-            <ul>
-              <li>Regular fit</li>
-              <li>The model (height 5'8" and chest 33") is wearing a size S</li>
-            </ul>
-            <blockquote>
-              <p><em>Define style this season with Armani's new range of trendy tops, crafted with intricate details.
-                  Create a chic statement look by teaming this lace number with skinny jeans and pumps.</em></p>
-            </blockquote>
-            <hr>
-            <div class="social">
-              <h4>Show it to your friends</h4>
-              <p><a href="#" class="external facebook"><i class="fa fa-facebook"></i></a><a href="#"
-                  class="external gplus"><i class="fa fa-google-plus"></i></a><a href="#" class="external twitter"><i
-                    class="fa fa-twitter"></i></a><a href="#" class="email"><i class="fa fa-envelope"></i></a></p>
-            </div>
+            {!! nl2br($product->Description) !!}
           </div>
           <div class="row same-height-row">
             <div class="col-md-3 col-sm-6">

@@ -63,7 +63,6 @@
                       <label>
                         <input type="checkbox" name="brand[]" value="{{ $brand->BrandID }}" {{ Request::get('brand') &&
                           in_array($brand->BrandID, Request::get('brand')) ? 'checked' : '' }}> {{ $brand->BrandName }}
-                        (10)
                       </label>
                     </div>
                     @endforeach
@@ -80,21 +79,6 @@
                 <div class="col-md-12 col-lg-4 products-showing">Showing <strong>{{$products->count()}}</strong> of
                   <strong>{{$products->total()}}</strong>
                   products
-                </div>
-                <div class="col-md-12 col-lg-7 products-number-sort">
-                  <form class="form-inline d-block d-lg-flex justify-content-between flex-column flex-md-row">
-                    <div class="products-number"><strong>Show</strong><a href="#"
-                        class="btn btn-sm btn-primary">12</a><a href="#"
-                        class="btn btn-outline-secondary btn-sm">24</a><a href="#"
-                        class="btn btn-outline-secondary btn-sm">All</a><span>products</span></div>
-                    <div class="products-sort-by mt-2 mt-lg-0"><strong>Sort by</strong>
-                      <select name="sort-by" class="form-control">
-                        <option>Price</option>
-                        <option>Name</option>
-                        <option>Sales first</option>
-                      </select>
-                    </div>
-                  </form>
                 </div>
               </div>
             </div>
