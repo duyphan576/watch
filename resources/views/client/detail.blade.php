@@ -1,4 +1,18 @@
 <x-client.main.main>
+  @if ($errors->any())
+  <div class="alert alert-danger">
+    <ul>
+      @foreach ($errors->all() as $error)
+      <li>{{ $error }}</li>
+      @endforeach
+    </ul>
+  </div>
+  @endif
+  @if (session('success'))
+  <div class="alert alert-success">
+    {{ session('success') }}
+  </div>
+  @endif
   <div id="all">
     <div id="content">
       <div class="container">
@@ -30,9 +44,10 @@
                 <p class="goToDescription"><a href="#details" class="scroll-to">Scroll to product details, material
                     &amp; care and sizing</a></p>
                 <p class="price">{!! number_format($product->Price, 0, '', '.') . ' &#8363' !!}</p>
-                <p class="text-center buttons"><a href="basket" class="btn btn-primary"><i
-                      class="fa fa-shopping-cart"></i> Add to cart</a><a href="basket"
-                    class="btn btn-outline-primary"><i class="fa fa-heart"></i> Add to wishlist</a></p>
+                <p class="text-center buttons">
+                  <a href="{{ url('cart/add/' . $product->ProductID) }}" class="btn btn-primary"><i
+                      class="fa fa-shopping-cart"></i> Add to cart</a>
+                </p>
               </div>
               <div data-slider-id="1" class="owl-thumbs">
                 <button class="owl-thumb-item"><img src="{{ asset('assets/image/product/' . $product->Image) }}" alt=""

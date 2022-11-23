@@ -28,6 +28,7 @@
                             <th scope="col">Product Name</th>
                             <th scope="col">Brand</th>
                             <th scope="col">Strap</th>
+                            <th scope="col">Quantity in stock</th>
                             <th scope="col">Quantity</th>
                             <th scope="col">Button</th>
                         </tr>
@@ -39,6 +40,7 @@
                             <td>{{ $product->ProductName }}</td>
                             <td>{{ $product->brand->BrandName}}</td>
                             <td>{{ $product->strap->StrapName}}</td>
+                            <td>{{ $product->strap->Quantity}}</td>
                             <form action="{{ url('admin/import/cart/add') }}" method="POST">
                                 <td><input type="number" name="quantity" id="quantity"></td>
                                 <td>

@@ -16,7 +16,7 @@ class CartController extends Controller {
     public function add($productID) {
         $product = Product::find($productID);
         $cartItem = Cart::content()->where('id', $productID)->first();
-        if(($cartItem && $product->Quantity - $cartItem->qty) < 0){
+        if(($product->Quantity - $cartItem->qty) - 1 < 0){
             return back()->withErrors('Product quantity is not enough');
         }
         Cart::add($productID, $product->ProductName, 1, $product->Price, 0,['image' => $product->Image]);
