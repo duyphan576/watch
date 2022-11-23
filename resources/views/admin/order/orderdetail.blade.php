@@ -29,7 +29,6 @@
                             <th scope="col">Quantity</th>
                             <th scope="col">Price</th>
                             <th scope="col">Total Price</th>
-                            <th scope="col">Button</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -40,12 +39,6 @@
                             <td>{{ $detail->Quantity }}</td>
                             <td>{!! number_format($detail->Price, 0, '', '.') . ' &#8363' !!}</td>
                             <td>{!! number_format(($detail->Price * $detail->Quantity), 0, '', '.') . ' &#8363' !!}</td>
-                            <td>
-                                <div class="btn-group" role="group">
-                                    <a href="editdetails"><button type="button"
-                                            class="btn btn-warning">Edit</button></a>
-                                </div>
-                            </td>
                         </tr>
                         @endforeach
                     </tbody>

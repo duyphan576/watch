@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\DB;
 class CheckoutController extends Controller {
 
     public function address() {
-        if(Cart::content()) {
+        if(Cart::count() == 0) {
             return back()->withErrors('Cart is empty');
         }
         $user = Auth::user();

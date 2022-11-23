@@ -121,7 +121,7 @@ Route::middleware('auth.admin:admin')->group(function () {
         Route::get('/staff/add', [AddStaffController::class, 'index'])->name('addStaff');
         Route::post('/staff/add', [AddStaffController::class, 'store']);
         Route::get('/staff/edit/{staffID}', [EditStaffController::class, 'index']);
-        Route::post('/staff/edit', [AddStaffController::class, 'accountstaff'])->name('editStaff');
+        Route::post('/staff/edit', [EditStaffController::class, 'update'])->name('editStaff');
 
         Route::get('/order', [AdminOrderController::class, 'index']);
         Route::get('/order/{OrderID}', [AdminOrderController::class, 'orderDetail']);
