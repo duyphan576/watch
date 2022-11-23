@@ -40,7 +40,7 @@
                             <td>{{ $product->ProductName }}</td>
                             <td>{{ $product->brand->BrandName}}</td>
                             <td>{{ $product->strap->StrapName}}</td>
-                            <td>{{ $product->strap->Quantity}}</td>
+                            <td>{{ $product->Quantity}}</td>
                             <form action="{{ url('admin/import/cart/add') }}" method="POST">
                                 <td><input type="number" name="quantity" id="quantity"></td>
                                 <td>
