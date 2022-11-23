@@ -12,7 +12,7 @@
   <div class="alert alert-success">
     {{ session('success') }}
   </div>
-  @endifs
+  @endif
   <div id="all">
     <div id="content">
       <div class="container">
