@@ -56,9 +56,9 @@
                                         disabled
                                         @endif
                                         >
-                                        <option value="0" {{ $order->Status == 0 ? 'selected' : '' }}>unprepared
+                                        <option value="0" {{ $order->Status == 0 ? 'selected' : '' }}>unprocessed
                                         </option>
-                                        <option value="1" {{ $order->Status == 1 ? 'selected' : '' }}>Being prepared
+                                        <option value="1" {{ $order->Status == 1 ? 'selected' : '' }}>Being processed
                                         </option>
                                         <option value="2" {{ $order->Status == 2 ? 'selected' : '' }}>Received</option>
                                         <!-- Xong thì không cho thay đổi -->

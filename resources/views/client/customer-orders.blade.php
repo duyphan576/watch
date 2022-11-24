@@ -53,10 +53,10 @@
                           ])>
                           @switch($order->Status)
                           @case(0)
-                          unprepared
+                          Unprocessed
                           @break
                           @case(1)
-                          Being prepared
+                          Being Processed
                           @break
                           @case(2)
                           Received
